@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автопарк - ICar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/logo2.png">
+    <link rel="shortcut icon" href="images/logo2.png">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-spot spot-1"></div>
+        <div class="gradient-spot spot-2"></div>
+        <div class="gradient-spot spot-3"></div>
+        <div class="gradient-spot spot-4"></div>
+        <div class="gradient-spot spot-5"></div>
+        <div class="gradient-spot spot-6"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
+                </div>
+
+                <nav class="nav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html" class="active">Автопарк</a>
+                    <a href="conditions.html">Условия</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+
+                <div class="header-right">
+                    <div class="contact-info">
+                        <a href="tel:+77080770098" class="phone-link">
+                            <div class="phone">+7 708 077 00-98</div>
+                        </a>
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="address-link">
+                            <div class="address">г. Астана, ул. Тауельсыздык 19а</div>
+                        </a>
+                    </div>
+
+                    <div class="language-section">
+                        <button class="current-lang nav-lang-btn" id="currentLang">
+                            <span>РУС</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="lang-option" data-lang="РУС">Русский</button>
+                            <button class="lang-option" data-lang="КАЗ">Қазақша</button>
+                            <button class="lang-option" data-lang="ENG">English</button>
+                            <button class="lang-option" data-lang="中文">中文</button>
+                            <button class="lang-option" data-lang="DE">Deutsch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="catalog-hero">
+        <div class="container">
+            <h1>Наш автопарк</h1>
+            <!-- Обновленные стильные фильтры -->
+            <div class="filters-section compact-filters">
+                <div class="filters-top-row">
+                    <div class="search-box compact left-aligned">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Поиск автомобиля...">
+                    </div>
+                </div>
+
+                <div class="filter-buttons full-width">
+                    <!-- Кастомный выпадающий список для города -->
+                    <div class="custom-dropdown">
+                        <button class="dropdown-toggle" id="cityToggle">
+                            <span class="dropdown-text">Все города</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="cityDropdown">
+                            <button class="dropdown-item active" data-value="all">Все города</button>
+                            <button class="dropdown-item" data-value="astana">Астана</button>
+                            <button class="dropdown-item" data-value="almaty">Алматы</button>
+                            <button class="dropdown-item" data-value="karaganda">Караганда</button>
+                        </div>
+                    </div>
+
+                    <!-- Кастомный выпадающий список для типа -->
+                    <div class="custom-dropdown">
+                        <button class="dropdown-toggle" id="typeToggle">
+                            <span class="dropdown-text">Все типы</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="typeDropdown">
+                            <button class="dropdown-item active" data-value="all">Все типы</button>
+                            <button class="dropdown-item" data-value="sedan">Седаны</button>
+                            <button class="dropdown-item" data-value="suv">Внедорожники</button>
+                            <button class="dropdown-item" data-value="minivan">Минивэны</button>
+                            <button class="dropdown-item" data-value="premium">Премиум</button>
+                        </div>
+                    </div>
+
+                    <!-- Кастомный выпадающий список для цены -->
+                    <div class="custom-dropdown">
+                        <button class="dropdown-toggle" id="priceToggle">
+                            <span class="dropdown-text">Любой ценовой сегмент</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu" id="priceDropdown">
+                            <button class="dropdown-item active" data-value="all">Любой ценовой сегмент</button>
+                            <button class="dropdown-item" data-value="economy">Эконом</button>
+                            <button class="dropdown-item" data-value="comfort">Комфорт</button>
+                            <button class="dropdown-item" data-value="business">Бизнес</button>
+                            <button class="dropdown-item" data-value="premium">Премиум</button>
+                        </div>
+                    </div>
+
+                    <button id="resetFilters" class="reset-btn compact">
+                        <i class="fas fa-redo"></i>
+                        Сбросить
+                    </button>
+                </div>
+
+                <div class="filter-results compact">
+                    <span id="resultsCount">Найдено 18 автомобилей</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalog">
+        <div class="container">
+            <!-- Сетка автомобилей -->
+            <div class="catalog-grid" id="catalogGrid">
+                <!-- Автомобили будут загружены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно аренды -->
+    <div id="rentModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image">
+                        <div class="modal-car-image">
+                            <!-- Фото будет загружено через JavaScript -->
+                        </div>
+                    </div>
+                    <div class="image-thumbnails">
+                        <div class="thumbnail active" data-image="1">
+                            <div class="thumbnail-placeholder">1</div>
+                        </div>
+                        <div class="thumbnail" data-image="2">
+                            <div class="thumbnail-placeholder">2</div>
+                        </div>
+                        <div class="thumbnail" data-image="3">
+                            <div class="thumbnail-placeholder">3</div>
+                        </div>
+                        <div class="thumbnail" data-image="4">
+                            <div class="thumbnail-placeholder">4</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-info">
+                    <h2 id="modalCarTitle">Mercedes-Benz S-Class</h2>
+                    <p id="modalCarDescription">Роскошный седан бизнес-класса с максимальным комфортом и передовыми технологиями.</p>
+
+                    <div class="modal-specs">
+                        <div class="spec-grid">
+                            <div class="spec-item">
+                                <i class="fas fa-users"></i>
+                                <span id="modalSeats">5 мест</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog"></i>
+                                <span id="modalTransmission">Автомат</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump"></i>
+                                <span id="modalFuel">Бензин</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span id="modalType">Седан</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="modalYear">2023</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span id="modalMileage">15 000 км</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- БЛОК ЦЕН И СКИДОК -->
+                    <div class="modal-price-section">
+                        <div class="price-main" id="modalPriceMain">25 000 ₸/сутки</div>
+
+                        <!-- Компактный аккордеон скидок -->
+                        <div class="discounts-block">
+                            <button class="discounts-toggle" id="discountsToggle">
+                                <span>Посмотреть скидки за период</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="discounts-content" id="discountsContent">
+                                <div class="discounts-grid" id="discountsGrid">
+                                    <!-- Скидки будут генерироваться через JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="price-discount" id="modalPriceDiscount">22 000 ₸/сутки при аренде от 3 дней</div>
+                    </div>
+
+                    <div class="modal-features">
+                        <h3>Особенности:</h3>
+                        <ul id="modalFeaturesList">
+                            <li>Климат-контроль</li>
+                            <li>Кожаный салон</li>
+                            <li>Панорамная крыша</li>
+                            <li>Подогрев сидений</li>
+                            <li>Система навигации</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="modal-rent-btn" id="modalRentBtn">Забронировать сейчас</button>
+                        <button class="modal-contact-btn" id="modalContactBtn">Связаться с менеджером</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-container">
+                        <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
+                    </div>
+                    <p class="footer-description">Премиальная аренда автомобилей в Астане. Лучшие условия и сервис.</p>
+                    <div class="footer-stats">
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Довольных клиентов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Автомобилей</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-btn">Главная</a>
+                        <a href="catalog.html" class="footer-nav-btn">Автопарк</a>
+                        <a href="conditions.html" class="footer-nav-btn">Условия</a>
+                        <a href="contacts.html" class="footer-nav-btn">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="footer-contact">
+                        <a href="tel:+77080770098" class="contact-link">
+                            <p><i class="fas fa-phone"></i> +7 708 077 00-98</p>
+                        </a>
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="contact-link">
+                            <p><i class="fas fa-map-marker-alt"></i> г. Астана, ул. Тауельсыздык 19а</p>
+                        </a>
+                        <a href="mailto:info@icar.kz" class="contact-link">
+                            <p><i class="fas fa-envelope"></i> info@icar.kz</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Документы</h3>
+                    <a href="offerta.html" class="offerta-btn">Публичная оферта</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/icar_avtorent?igsh=MTllbDN0MnJyYnE5Zw%3D%3D&utm_source=qr" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/message/NWBAXKDHB6WHJ1" class="social-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/icarlife" class="social-btn telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 ICar. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cars-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
