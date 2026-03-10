@@ -1,10 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Партнёрство - ICar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/logo2.png">
+    <link rel="shortcut icon" href="images/logo2.png">
 </head>
 <body>
-$END$
+    <!-- Animated Background -->
+    <div class="animated-background">
+        <div class="gradient-spot spot-1"></div>
+        <div class="gradient-spot spot-2"></div>
+        <div class="gradient-spot spot-3"></div>
+        <div class="gradient-spot spot-4"></div>
+        <div class="gradient-spot spot-5"></div>
+        <div class="gradient-spot spot-6"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="index.html">Главная</a>
+                    <a href="catalog.html">Автопарк</a>
+                    <a href="conditions.html">Условия</a>
+                    <a href="partnership.html" class="active">Партнёрство</a>
+                    <a href="contacts.html">Контакты</a>
+                    <a href="tel:+77080770098" class="nav-mobile-phone"><i class="fas fa-phone"></i> +7 708 077 00-98</a>
+                </nav>
+
+                <div class="header-right">
+                    <div class="contact-info">
+                        <a href="tel:+77080770098" class="phone-link">
+                            <div class="phone">+7 708 077 00-98</div>
+                        </a>
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="address-link">
+                            <div class="address">г. Астана, ул. Тауельсыздык 19а</div>
+                        </a>
+                    </div>
+
+                    <div class="language-section">
+                        <button class="current-lang nav-lang-btn" id="currentLang">
+                            <span>РУС</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <button class="lang-option" data-lang="РУС">Русский</button>
+                            <button class="lang-option" data-lang="КАЗ">Қазақша</button>
+                            <button class="lang-option" data-lang="ENG">English</button>
+                            <button class="lang-option" data-lang="中文">中文</button>
+                            <button class="lang-option" data-lang="DE">Deutsch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="conditions-hero">
+        <div class="container">
+            <h1>Партнёрская программа</h1>
+            <p>Выгодные условия сотрудничества для владельцев автомобилей</p>
+        </div>
+    </section>
+
+    <section class="conditions">
+        <div class="container">
+            <div class="conditions-grid">
+                <div class="condition-card">
+                    <div class="condition-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Высокий доход</h3>
+                    <ul>
+                        <li>До 70% от стоимости аренды</li>
+                        <li>Ежедневные выплаты</li>
+                        <li>Без скрытых комиссий</li>
+                        <li>Прозрачная отчетность</li>
+                    </ul>
+                </div>
+
+                <div class="condition-card">
+                    <div class="condition-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Полная защита</h3>
+                    <ul>
+                        <li>Страхование КАСКО</li>
+                        <li>Юридическая поддержка</li>
+                        <li>Защита от недобросовестных клиентов</li>
+                        <li>Техническое обслуживание</li>
+                    </ul>
+                </div>
+
+                <div class="condition-card">
+                    <div class="condition-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Управление онлайн</h3>
+                    <ul>
+                        <li>Личный кабинет партнера</li>
+                        <li>Мобильное приложение</li>
+                        <li>Онлайн-отслеживание статистики</li>
+                        <li>Автоматические отчеты</li>
+                    </ul>
+                </div>
+
+                <div class="condition-card">
+                    <div class="condition-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Поддержка 24/7</h3>
+                    <ul>
+                        <li>Круглосуточная техподдержка</li>
+                        <li>Помощь на дороге</li>
+                        <li>Консультации менеджера</li>
+                        <li>Быстрое решение вопросов</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="document-content">
+                <div class="document-container">
+                    <div class="document-section">
+                        <h2>Договор партнёрства</h2>
+                        <p>Настоящий договор определяет условия сотрудничества между ICar и владельцами транспортных средств.</p>
+                    </div>
+
+                    <div class="document-section">
+                        <h2>1. Условия сотрудничества</h2>
+                        <p>1.1. Владелец передает транспортное средство в управление компании ICar для организации аренды.</p>
+                        <p>1.2. Компания ICar обязуется обеспечивать аренду автомобиля, страхование, техническое обслуживание и клиентскую поддержку.</p>
+                        <p>1.3. Доход от аренды распределяется в соответствии с выбранным тарифным планом.</p>
+                    </div>
+
+                    <div class="document-section">
+                        <h2>2. Финансовые условия</h2>
+                        <p>2.1. Стандартная комиссия компании - 30% от стоимости каждой аренды.</p>
+                        <p>2.2. Выплаты производятся ежедневно на расчетный счет партнера.</p>
+                        <p>2.3. При долгосрочном сотрудничестве комиссия может быть снижена до 25%.</p>
+                        <p>2.4. Все расходы на топливо, мойку и платные парковки оплачиваются арендатором.</p>
+                    </div>
+
+                    <div class="document-section">
+                        <h2>3. Обязанности сторон</h2>
+                        <p><strong>Компания ICar обязуется:</strong></p>
+                        <ul>
+                            <li>Обеспечивать круглосуточную поддержку клиентов</li>
+                            <li>Организовывать страхование транспортного средства</li>
+                            <li>Проводить регулярное техническое обслуживание</li>
+                            <li>Обеспечивать юридическое сопровождение</li>
+                            <li>Предоставлять полную финансовую отчетность</li>
+                        </ul>
+
+                        <p><strong>Партнер обязуется:</strong></p>
+                        <ul>
+                            <li>Предоставить исправное транспортное средство</li>
+                            <li>Своевременно проходить технический осмотр</li>
+                            <li>Уведомлять о плановом ремонте заранее</li>
+                            <li>Соблюдать условия договора</li>
+                        </ul>
+                    </div>
+
+                    <div class="document-section">
+                        <h2>4. Требования к автомобилям</h2>
+                        <p>4.1. Возраст автомобиля - не старше 7 лет</p>
+                        <p>4.2. Технически исправное состояние</p>
+                        <p>4.3. Наличие действующей страховки</p>
+                        <p>4.4. Чистая история обслуживания</p>
+                        <p>4.5. Отсутствие серьезных повреждений кузова</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Часто задаваемые вопросы от партнеров</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Какой доход я могу получать?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Доход зависит от класса автомобиля, сезона и спроса. В среднем партнеры получают от 50,000 до 300,000 ₸ в месяц за один автомобиль. Премиальные автомобили приносят больший доход.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Как происходит страхование автомобиля?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Мы оформляем полное КАСКО на автомобиль. Все риски, включая ДТП и угоны, покрываются страховкой. В случае страхового случая, ремонт осуществляется за счет страховой компании.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Кто оплачивает техобслуживание и ремонт?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Текущее техническое обслуживание (замена масла, фильтров) оплачивается компанией. Крупный ремонт, связанный с естественным износом, обсуждается индивидуально и может покрываться за счет совместного фонда.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Могу ли я забрать автомобиль для личного использования?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, вы можете забрать автомобиль для личного использования, предварительно уведомив менеджера. В такие периоды аренда автомобиля приостанавливается, и доход не начисляется.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Как быстро я начну получать доход?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>После оформления документов и подготовки автомобиля, первый доход вы получаете уже в день первой аренды. Выплаты производятся ежедневно.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Что делать, если клиент повредил автомобиль?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Все повреждения фиксируются при приеме-передаче автомобиля. Ремонт оплачивается за счет страховки или клиента (в зависимости от условий страхового случая). Вы получаете автомобиль в исправном состоянии.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма для партнеров -->
+            <div class="contact-form-section">
+                <div class="form-container" style="grid-column: 1 / -1;">
+                    <h2>Стать партнером</h2>
+                    <p>Заполните форму и наш менеджер свяжется с вами для обсуждения условий сотрудничества</p>
+
+                    <form class="contact-form" id="partnershipForm">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <input type="text" id="partnerName" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="partnerPhone" placeholder="Номер телефона" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <input type="text" id="carBrand" placeholder="Марка автомобиля" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="carModel" placeholder="Модель автомобиля" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-3">
+                            <div class="form-group">
+                                <input type="number" id="carYear" placeholder="Год выпуска" min="1886" max="2026" value="2026" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="carColor" placeholder="Цвет" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="carType" required>
+                                    <option value="">Тип автомобиля</option>
+                                    <option value="sedan">Седан</option>
+                                    <option value="suv">Внедорожник</option>
+                                    <option value="minivan">Минивэн</option>
+                                    <option value="premium">Премиум</option>
+                                    <option value="other">Другой</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="partnerMessage" placeholder="Дополнительная информация о автомобиле или условиях сотрудничества" rows="4"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Отправить заявку на партнёрство</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-container">
+                        <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
+                    </div>
+                    <p class="footer-description">Премиальная аренда автомобилей в Астане. Лучшие условия и сервис.</p>
+                    <div class="footer-stats">
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Довольных клиентов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Автомобилей</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-nav-btn">Главная</a>
+                        <a href="catalog.html" class="footer-nav-btn">Автопарк</a>
+                        <a href="conditions.html" class="footer-nav-btn">Условия</a>
+                        <a href="partnership.html" class="footer-nav-btn">Партнёрство</a>
+                        <a href="contacts.html" class="footer-nav-btn">Контакты</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <div class="footer-contact">
+                        <a href="tel:+77080770098" class="contact-link">
+                            <p><i class="fas fa-phone"></i> +7 708 077 00-98</p>
+                        </a>
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="contact-link">
+                            <p><i class="fas fa-map-marker-alt"></i> г. Астана, ул. Тауельсыздык 19а</p>
+                        </a>
+                        <a href="mailto:info@icar.kz" class="contact-link">
+                            <p><i class="fas fa-envelope"></i> info@icar.kz</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Документы</h3>
+                    <a href="offerta.html" class="offerta-btn">Публичная оферта</a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/icar_avtorent?igsh=MTllbDN0MnJyYnE5Zw%3D%3D&utm_source=qr" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/message/NWBAXKDHB6WHJ1" class="social-btn whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/icarlife" class="social-btn telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 ICar. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

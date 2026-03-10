@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv camry_75_white toyota_camry_75_4wd_73291)",
+      "Bash(mv geely:*)",
+      "Bash(mv hyundai_grandeur_black hyundai_grandeur_73624)",
+      "Bash(mv hyundai_santa_fe_black hyundai_santa_fe_73622)",
+      "Bash(mv jetour_x90 jetour_x90_plus_73625)"
+    ]
+  }
+}

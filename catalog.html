@@ -28,11 +28,17 @@
                     <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
                 </div>
 
-                <nav class="nav">
+                <button class="hamburger" id="hamburger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
                     <a href="index.html">Главная</a>
-                    <a href="catalog.html" class="active">Автопарк</a>
+                    <a href="catalog.html">Автопарк</a>
                     <a href="conditions.html">Условия</a>
+                    <a href="partnership.html">Партнёрство</a>
                     <a href="contacts.html">Контакты</a>
+                    <a href="tel:+77080770098" class="nav-mobile-phone"><i class="fas fa-phone"></i> +7 708 077 00-98</a>
                 </nav>
 
                 <div class="header-right">
@@ -79,7 +85,7 @@
                     <!-- Кастомный выпадающий список для города -->
                     <div class="custom-dropdown">
                         <button class="dropdown-toggle" id="cityToggle">
-                            <span class="dropdown-text">Все города</span>
+                            <span class="dropdown-text">Город</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu" id="cityDropdown">
@@ -93,7 +99,7 @@
                     <!-- Кастомный выпадающий список для типа -->
                     <div class="custom-dropdown">
                         <button class="dropdown-toggle" id="typeToggle">
-                            <span class="dropdown-text">Все типы</span>
+                            <span class="dropdown-text">Тип Авто</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu" id="typeDropdown">
@@ -101,14 +107,14 @@
                             <button class="dropdown-item" data-value="sedan">Седаны</button>
                             <button class="dropdown-item" data-value="suv">Внедорожники</button>
                             <button class="dropdown-item" data-value="minivan">Минивэны</button>
-                            <button class="dropdown-item" data-value="premium">Премиум</button>
+                            <button class="dropdown-item" data-value="premium">Электро / Гибриды</button>
                         </div>
                     </div>
 
                     <!-- Кастомный выпадающий список для цены -->
                     <div class="custom-dropdown">
                         <button class="dropdown-toggle" id="priceToggle">
-                            <span class="dropdown-text">Любой ценовой сегмент</span>
+                            <span class="dropdown-text">Ценовой сегмент</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu" id="priceDropdown">
@@ -167,6 +173,9 @@
                         <div class="thumbnail" data-image="4">
                             <div class="thumbnail-placeholder">4</div>
                         </div>
+                        <div class="thumbnail" data-image="5">
+                            <div class="thumbnail-placeholder">5</div>
+                        </div>
                     </div>
                 </div>
 
@@ -176,6 +185,18 @@
 
                     <div class="modal-specs">
                         <div class="spec-grid">
+                            <div class="spec-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="modalYear">2024</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-palette"></i>
+                                <span id="modalColor">Белый</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-car"></i>
+                                <span id="modalType">Седан</span>
+                            </div>
                             <div class="spec-item">
                                 <i class="fas fa-users"></i>
                                 <span id="modalSeats">5 мест</span>
@@ -188,55 +209,64 @@
                                 <i class="fas fa-gas-pump"></i>
                                 <span id="modalFuel">Бензин</span>
                             </div>
-                            <div class="spec-item">
-                                <i class="fas fa-car"></i>
-                                <span id="modalType">Седан</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-calendar"></i>
-                                <span id="modalYear">2023</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span id="modalMileage">15 000 км</span>
-                            </div>
                         </div>
                     </div>
 
                     <!-- БЛОК ЦЕН И СКИДОК -->
                     <div class="modal-price-section">
-                        <div class="price-main" id="modalPriceMain">25 000 ₸/сутки</div>
+                        <div class="price-with-deposit" id="modalPriceWithDeposit">
+                            <div class="price-main" id="modalPriceMain">35 000 ₸/сутки</div>
+                        </div>
 
-                        <!-- Компактный аккордеон скидок -->
+                        <!-- Дополнительные часы -->
+                        <div class="additional-hours" id="additionalHoursBlock">
+                            <i class="fas fa-clock"></i>
+                            <span class="additional-hours-label">Цена за дополнительные часы:</span>
+                            <span class="additional-hours-value" id="modalAdditionalHours">3 000 ₸/час</span>
+                        </div>
+
+                        <!-- Компактный аккордеон с ценами за период -->
                         <div class="discounts-block">
                             <button class="discounts-toggle" id="discountsToggle">
-                                <span>Посмотреть скидки за период</span>
+                                <span>Посмотреть цены за период</span>
                                 <i class="fas fa-chevron-down"></i>
                             </button>
                             <div class="discounts-content" id="discountsContent">
-                                <div class="discounts-grid" id="discountsGrid">
-                                    <!-- Скидки будут генерироваться через JavaScript -->
+                                <div class="pricing-container">
+                                    <div class="periods-table-container">
+                                        <div class="discounts-grid" id="discountsGrid">
+                                            <!-- Таблица периодов будет загружена через JavaScript -->
+                                        </div>
+                                    </div>
+                                    <div class="long-term-container">
+                                        <div class="long-term-card">
+                                            <h4>Аренда на долгий срок</h4>
+                                            <p class="long-term-description">
+                                                При долгосрочной аренде работают особые условия. Если вам необходим такой вид аренды нажмите кнопку ниже.
+                                            </p>
+                                            <button class="modal-contact-btn" id="modalContactBtn">
+                                                <i class="fas fa-headset"></i>
+                                                Связаться с менеджером
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="price-discount" id="modalPriceDiscount">22 000 ₸/сутки при аренде от 3 дней</div>
                     </div>
 
                     <div class="modal-features">
                         <h3>Особенности:</h3>
                         <ul id="modalFeaturesList">
                             <li>Климат-контроль</li>
-                            <li>Кожаный салон</li>
-                            <li>Панорамная крыша</li>
-                            <li>Подогрев сидений</li>
-                            <li>Система навигации</li>
+                            <li>Мультимедийная система</li>
+                            <li>Камера заднего вида</li>
+                            <li>Круиз-контроль</li>
                         </ul>
                     </div>
 
                     <div class="modal-actions">
                         <button class="modal-rent-btn" id="modalRentBtn">Забронировать сейчас</button>
-                        <button class="modal-contact-btn" id="modalContactBtn">Связаться с менеджером</button>
                     </div>
                 </div>
             </div>

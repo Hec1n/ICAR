@@ -44,6 +44,7 @@ body {
     background: radial-gradient(circle, #1a237e, transparent);
     top: -200px;
     left: -100px;
+    animation-duration: 18s;
     animation-delay: 0s;
 }
 
@@ -53,7 +54,8 @@ body {
     background: radial-gradient(circle, #0d47a1, transparent);
     top: 50%;
     right: -100px;
-    animation-delay: -5s;
+    animation-duration: 22s;
+    animation-delay: -4s;
 }
 
 .spot-3 {
@@ -62,7 +64,8 @@ body {
     background: radial-gradient(circle, #1565c0, transparent);
     bottom: -300px;
     left: 30%;
-    animation-delay: -10s;
+    animation-duration: 26s;
+    animation-delay: -9s;
 }
 
 .spot-4 {
@@ -71,7 +74,8 @@ body {
     background: radial-gradient(circle, #1976d2, transparent);
     top: 20%;
     left: 40%;
-    animation-delay: -15s;
+    animation-duration: 19s;
+    animation-delay: -14s;
 }
 
 .spot-5 {
@@ -80,7 +84,8 @@ body {
     background: radial-gradient(circle, #1e88e5, transparent);
     bottom: 20%;
     right: 30%;
-    animation-delay: -7s;
+    animation-duration: 24s;
+    animation-delay: -6s;
 }
 
 .spot-6 {
@@ -89,13 +94,17 @@ body {
     background: radial-gradient(circle, #42a5f5, transparent);
     top: 60%;
     left: 10%;
-    animation-delay: -12s;
+    animation-duration: 21s;
+    animation-delay: -11s;
 }
 
 @keyframes float {
-    0%, 100% {
+    0% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.6;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.65;
     }
     25% {
         transform: translate(50px, 50px) scale(1.1);
@@ -103,11 +112,18 @@ body {
     }
     50% {
         transform: translate(-30px, 80px) scale(0.9);
-        opacity: 0.5;
+        opacity: 0.55;
     }
     75% {
         transform: translate(70px, -40px) scale(1.05);
         opacity: 0.65;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
     }
 }
 
@@ -342,6 +358,7 @@ body {
     margin-bottom: 1.5rem;
     background: linear-gradient(90deg, #fff, #6a9ae8, #fff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: shimmer 3s infinite linear;
@@ -540,6 +557,7 @@ body {
     margin-bottom: 1rem;
     background: linear-gradient(90deg, #fff, #6a9ae8);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -552,6 +570,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    align-items: stretch;
 }
 
 .premium-car-card {
@@ -562,6 +581,12 @@ body {
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.premium-car-card .car-header {
+    flex-shrink: 0;
 }
 
 .premium-car-card:hover {
@@ -571,16 +596,22 @@ body {
 }
 
 .car-header {
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.6rem;
     background: rgba(0, 0, 0, 0.3);
+    flex-wrap: nowrap;
+    min-height: 110px;
 }
 
 .car-header h3 {
     font-size: 1.3rem;
     color: white;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
 }
 
 .car-badge {
@@ -588,6 +619,8 @@ body {
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: bold;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .car-badge.premium {
@@ -890,29 +923,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header-container {
-        width: 90%;
-        padding: 0.8rem 1rem;
-    }
-
-    .header-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav {
-        order: 2;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .header-right {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-    }
-
     .hero-title {
         font-size: 2.5rem;
     }
@@ -923,15 +933,6 @@ body {
 
     .premium-cars-grid {
         grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .scrolling-item {
-        font-size: 1rem;
-        padding: 0.6rem 1.2rem;
     }
 
     .footer-nav-btn {
@@ -947,8 +948,9 @@ body {
 }
 /* Стили для каталога */
 .catalog-hero {
-    padding: 180px 0 80px;
+    padding: 180px 0 110px;
     position: relative;
+    z-index: 10;
 }
 
 .catalog-hero h1 {
@@ -957,6 +959,7 @@ body {
     margin-bottom: 2rem;
     background: linear-gradient(90deg, #fff, #6a9ae8, #fff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: shimmer 3s infinite linear;
@@ -1007,8 +1010,8 @@ body {
 }
 
 .dropdown-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
     padding: 0.8rem 1.2rem;
     border-radius: 12px;
@@ -1018,56 +1021,98 @@ body {
     gap: 0.5rem;
     min-width: 200px;
     justify-content: space-between;
-    transition: all 0.3s;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
 }
 
 .dropdown-toggle:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(106, 154, 232, 0.15);
+    border-color: rgba(106, 154, 232, 0.4);
+    box-shadow: 0 4px 16px rgba(106, 154, 232, 0.15);
+}
+
+.dropdown-toggle .fa-chevron-down {
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.dropdown-toggle.active .fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 6px);
     left: 0;
     width: 100%;
-    background: rgba(40, 40, 40, 0.95);
-    backdrop-filter: blur(15px);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(12, 16, 35, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255,255,255,0.06);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s;
-    z-index: 1000;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-8px) scale(0.97);
+    transform-origin: top center;
+    transition: opacity 0.25s cubic-bezier(0.4,0,0.2,1),
+                transform 0.3s cubic-bezier(0.34,1.2,0.64,1),
+                visibility 0s linear 0.3s;
+    z-index: 2000;
+    border: 1px solid rgba(106, 154, 232, 0.2);
+    overflow: hidden;
+    padding: 4px 0;
 }
 
 .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    transition: opacity 0.25s cubic-bezier(0.4,0,0.2,1),
+                transform 0.3s cubic-bezier(0.34,1.2,0.64,1),
+                visibility 0s linear 0s;
+}
+
+.dropdown-menu.show .dropdown-item {
+    animation: dropdown-item-in 0.3s cubic-bezier(0.4,0,0.2,1) both;
+}
+.dropdown-menu.show .dropdown-item:nth-child(1) { animation-delay: 0.04s; }
+.dropdown-menu.show .dropdown-item:nth-child(2) { animation-delay: 0.09s; }
+.dropdown-menu.show .dropdown-item:nth-child(3) { animation-delay: 0.14s; }
+.dropdown-menu.show .dropdown-item:nth-child(4) { animation-delay: 0.19s; }
+.dropdown-menu.show .dropdown-item:nth-child(5) { animation-delay: 0.24s; }
+
+@keyframes dropdown-item-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: 0.8rem 1.2rem;
+    padding: 0.75rem 1.2rem;
     border: none;
     background: none;
-    color: white;
+    color: rgba(255,255,255,0.85);
     cursor: pointer;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    position: relative;
 }
 
 .dropdown-item:last-child {
     border-bottom: none;
 }
 
-.dropdown-item:hover,
+.dropdown-item:hover {
+    background: rgba(106, 154, 232, 0.15);
+    color: #6a9ae8;
+    padding-left: 1.5rem;
+}
+
 .dropdown-item.active {
-    background: rgba(74, 123, 200, 0.3);
+    background: rgba(106, 154, 232, 0.12);
+    color: #6a9ae8;
+    font-weight: 600;
 }
 
 .reset-btn {
@@ -1109,6 +1154,8 @@ body {
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
 }
 
 .car-card-detailed:hover {
@@ -1134,7 +1181,7 @@ body {
     transform: scale(1.05);
 }
 
-.car-badge {
+.car-card-detailed .car-badge {
     position: absolute;
     top: 1rem;
     left: 1rem;
@@ -1161,6 +1208,9 @@ body {
 
 .car-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .car-info h3 {
@@ -1175,30 +1225,40 @@ body {
     line-height: 1.5;
 }
 
-.car-specs {
+.car-details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.8rem;
     margin-bottom: 1.5rem;
 }
 
-.spec {
+.detail-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
-.spec i {
+.detail-item i {
     color: #6a9ae8;
     width: 16px;
 }
 
-.car-price-section {
+.detail-label {
+    color: rgba(255, 255, 255, 0.6);
+    min-width: 50px;
+}
+
+.detail-value {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.price-with-deposit {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
 }
 
 .price-main {
@@ -1207,9 +1267,35 @@ body {
     color: #6a9ae8;
 }
 
-.price-discount {
+.deposit-small {
+    font-size: 0.85rem;
+    color: #6a9ae8;
+    margin-top: 0.2rem;
+}
+
+.price-details {
+    margin-top: 0.5rem;
+}
+
+.price-period {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
     font-size: 0.9rem;
+}
+
+.period-label {
     color: rgba(255, 255, 255, 0.7);
+}
+
+.period-price {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.period-price.discount {
+    color: #6a9ae8;
 }
 
 .rent-btn {
@@ -1223,6 +1309,7 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 1rem;
+    margin-top: auto;
 }
 
 .rent-btn:hover {
@@ -1247,11 +1334,13 @@ body {
     background: rgba(30, 30, 30, 0.95);
     margin: 2% auto;
     padding: 0;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 1000px;
-    max-height: 90vh;
-    overflow-y: auto;
+    border-radius: 16px;
+    width: 86%;
+    max-width: 860px;
+    max-height: 84vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
@@ -1277,6 +1366,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .modal-gallery {
@@ -1285,7 +1377,7 @@ body {
 }
 
 .main-image {
-    height: 400px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -1297,7 +1389,7 @@ body {
 .modal-car-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .image-thumbnails {
@@ -1338,55 +1430,81 @@ body {
 }
 
 .modal-info {
-    padding: 2rem;
+    padding: 1.4rem 1.6rem;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .modal-info h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.55rem;
+    margin-bottom: 0.5rem;
     color: white;
 }
 
-.modal-info p {
+.modal-info > p {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
 }
 
 .modal-specs {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .spec-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .spec-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
 }
 
 .spec-item i {
     color: #6a9ae8;
+    font-size: 0.85rem;
 }
 
 .modal-price-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.price-main {
-    font-size: 2rem;
-    font-weight: bold;
+.additional-hours {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    padding: 0.55rem 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.additional-hours i {
     color: #6a9ae8;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.additional-hours-label {
+    color: rgba(255, 255, 255, 0.7);
+    flex-grow: 1;
+    font-size: 0.9rem;
+}
+
+.additional-hours-value {
+    color: #6a9ae8;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .discounts-block {
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
 }
 
 .discounts-toggle {
@@ -1418,65 +1536,91 @@ body {
 
 .discounts-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0;
 }
 
-.discount-item {
+.periods-table {
+    width: 100%;
     background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
     border-radius: 8px;
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: all 0.3s;
 }
 
-.discount-item:hover,
-.discount-item.active {
-    border-color: #6a9ae8;
-    background: rgba(74, 123, 200, 0.1);
+.periods-header {
+    display: flex;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.discount-period {
+.period-header, .price-header {
+    flex: 1;
     font-weight: bold;
     color: white;
-    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
-.discount-price {
+.period-header {
+    text-align: left;
+}
+
+.period-row {
+    display: flex;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.period-row:last-child {
+    border-bottom: none;
+}
+
+.period-row:hover, .period-row.active {
+    background: rgba(74, 123, 200, 0.1);
+    border-left: 3px solid #6a9ae8;
+}
+
+.period-cell, .price-cell {
+    flex: 1;
+    padding: 0.3rem 0;
+}
+
+.period-cell {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.price-cell {
     color: #6a9ae8;
     font-weight: bold;
-    margin-bottom: 0.3rem;
-}
-
-.discount-savings {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.price-discount {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    text-align: center;
 }
 
 .modal-features {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .modal-features h3 {
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
 }
 
 .modal-features ul {
     list-style: none;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 0.5rem;
 }
 
 .modal-features li {
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.3rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.83rem;
 }
 
 .modal-features li:last-child {
@@ -1544,11 +1688,14 @@ body {
     }
 
     .modal-gallery {
-        height: 300px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .main-image {
-        height: 250px;
+        height: 195px;
+        flex-shrink: 0;
     }
 
     .spec-grid {
@@ -1574,9 +1721,17 @@ body {
     .discounts-grid {
         grid-template-columns: 1fr;
     }
-}
-/* Добавляем эти стили в конец файла style.css */
 
+    .periods-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .period-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
 /* Hero Sections для разных страниц */
 .conditions-hero, .contacts-hero, .documents-hero {
     padding: 180px 0 80px;
@@ -1589,6 +1744,7 @@ body {
     margin-bottom: 1rem;
     background: linear-gradient(90deg, #fff, #6a9ae8, #fff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: shimmer 3s infinite linear;
@@ -1682,10 +1838,17 @@ body {
 
 .faq-item {
     margin-bottom: 1rem;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.faq-item.active {
+    border-color: rgba(106, 154, 232, 0.4);
+    background: rgba(106, 154, 232, 0.05);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
 .faq-question {
@@ -1696,36 +1859,84 @@ body {
     align-items: center;
     color: white;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: background 0.25s ease, color 0.25s ease;
+    position: relative;
+}
+
+.faq-question::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #6a9ae8, #4a7bc8);
+    border-radius: 0 3px 3px 0;
+    transform: scaleY(0);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: top;
+}
+
+.faq-item.active .faq-question::before {
+    transform: scaleY(1);
 }
 
 .faq-question:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.faq-item.active .faq-question {
+    color: #6a9ae8;
 }
 
 .faq-question i {
-    transition: transform 0.3s;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.3s ease,
+                color 0.3s ease;
 }
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
+    background: rgba(106, 154, 232, 0.2);
+    color: #6a9ae8;
 }
 
 .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
     padding: 0 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s;
+    padding-bottom: 0;
+    transition: grid-template-rows 0.45s cubic-bezier(0.4,0,0.2,1),
+                padding-bottom 0.45s cubic-bezier(0.4,0,0.2,1);
 }
 
 .faq-item.active .faq-answer {
-    padding: 0 1.5rem 1.5rem;
-    max-height: 500px;
+    grid-template-rows: 1fr;
+    padding-bottom: 1.5rem;
 }
 
 .faq-answer p {
+    overflow: hidden;
+    min-height: 0;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.38s cubic-bezier(0.4,0,0.2,1) 0.08s,
+                transform 0.38s cubic-bezier(0.4,0,0.2,1) 0.08s;
+}
+
+.faq-item.active .faq-answer p {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Стили для контактов */
@@ -2131,4 +2342,1775 @@ body {
     .section-title {
         font-size: 2rem;
     }
+}
+/* Стили для контейнера цен и долгосрочной аренды */
+.pricing-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.periods-table-container {
+    flex: 1;
+    min-width: 0;
+}
+
+.long-term-container {
+    flex: 1;
+    min-width: 0;
+}
+
+.long-term-card {
+    background: rgba(74, 123, 200, 0.1);
+    border: 1px solid rgba(74, 123, 200, 0.3);
+    border-radius: 12px;
+    padding: 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.long-term-icon {
+    font-size: 2rem;
+    color: #6a9ae8;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.long-term-card h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.long-term-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.long-term-card .modal-contact-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4a7bc8, #6a9ae8);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.long-term-card .modal-contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .pricing-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .periods-table-container,
+    .long-term-container {
+        width: 100%;
+    }
+
+    .long-term-card {
+        padding: 15px;
+    }
+
+    .long-term-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .long-term-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Стили для модальных действий (теперь только одна кнопка) */
+.modal-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.9rem;
+}
+
+.modal-rent-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4a7bc8, #6a9ae8);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.modal-rent-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+}
+
+/* =============================================
+   НЕДОСТАЮЩИЕ КЛАССЫ МАКЕТА КАТАЛОГА
+   ============================================= */
+
+.compact-filters {
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.filters-top-row {
+    margin-bottom: 1rem;
+}
+
+.search-box.compact {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.search-box.left-aligned {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.filter-buttons.full-width {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.filter-results.compact {
+    margin-top: 0.8rem;
+    text-align: left;
+}
+
+.reset-btn.compact {
+    padding: 0.8rem 1rem;
+}
+
+/* =============================================
+   УЛУЧШЕННЫЕ HOVER-АНИМАЦИИ
+   ============================================= */
+
+/* Поля ввода — фокус-анимация */
+.search-box input:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(106, 154, 232, 0.6);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(74, 123, 200, 0.15);
+    transition: all 0.3s ease;
+}
+
+.search-box input {
+    transition: all 0.3s ease;
+}
+
+/* Кнопки фильтров — улучшенный hover */
+.dropdown-toggle {
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background: rgba(74, 123, 200, 0.2);
+    border-color: rgba(106, 154, 232, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.2);
+}
+
+/* Кнопка сброса фильтров */
+.reset-btn {
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: rgba(255, 80, 80, 0.2);
+    border-color: rgba(255, 100, 100, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(200, 50, 50, 0.2);
+    color: #ff9090;
+}
+
+.reset-btn:hover i {
+    animation: spin-once 0.4s ease;
+}
+
+@keyframes spin-once {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+
+/* Dropdown items */
+.dropdown-item:hover {
+    background: rgba(74, 123, 200, 0.25);
+    padding-left: 1.6rem;
+    color: #a0c4ff;
+}
+
+.dropdown-item {
+    transition: all 0.25s ease;
+}
+
+/* Кнопка закрытия модалки */
+.modal-close {
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(200, 50, 50, 0.7);
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Миниатюры изображений в модалке */
+.thumbnail:hover {
+    border-color: rgba(106, 154, 232, 0.7);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(74, 123, 200, 0.4);
+}
+
+/* Переключатель скидок */
+.discounts-toggle {
+    transition: all 0.3s ease;
+}
+
+.discounts-toggle:hover {
+    background: rgba(74, 123, 200, 0.2);
+    border-color: rgba(106, 154, 232, 0.5);
+    box-shadow: 0 3px 10px rgba(74, 123, 200, 0.2);
+}
+
+/* Плавная анимация аккордеона скидок (вместо display:none) */
+.discounts-content {
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.discounts-content.show {
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+/* Контактные карточки — border при ховере */
+.contact-card {
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: rgba(74, 123, 200, 0.5);
+    box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
+}
+
+.contact-card .contact-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.2) translateY(-4px);
+    color: #a0c4ff;
+}
+
+/* Иконки в карточках условий */
+.condition-card .condition-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.condition-card:hover .condition-icon {
+    transform: scale(1.2) rotate(-5deg);
+    color: #a0c4ff;
+}
+
+/* Карточки команды — иконка фото */
+.team-card .photo-placeholder {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover .photo-placeholder {
+    border-color: rgba(106, 154, 232, 0.6);
+    box-shadow: 0 0 20px rgba(74, 123, 200, 0.3);
+}
+
+/* Кнопки в каталоге — подсветка при ховере */
+.rent-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.rent-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.rent-btn:hover::after {
+    left: 100%;
+}
+
+/* Языковые опции */
+.lang-option {
+    transition: all 0.25s ease;
+}
+
+.lang-option:hover {
+    background: rgba(74, 123, 200, 0.3);
+    padding-left: 1.5rem;
+    color: #a0c4ff;
+}
+
+/* Спецификации в модалке — hover на item */
+.spec-item {
+    transition: all 0.25s ease;
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
+}
+
+.spec-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.spec-item:hover i {
+    transform: scale(1.2);
+    transition: transform 0.25s ease;
+}
+
+/* Кнопка оферты в футере */
+.offerta-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.offerta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.offerta-btn:hover::after {
+    left: 100%;
+}
+
+.offerta-btn:hover {
+    background: rgba(74, 123, 200, 0.25);
+    border-color: rgba(106, 154, 232, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.3);
+}
+
+/* Карточки автомобилей в каталоге — дополнительный glow */
+.car-card-detailed {
+    transition: all 0.35s ease;
+}
+
+.car-card-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(74, 123, 200, 0.35);
+    border-color: rgba(106, 154, 232, 0.6);
+}
+
+/* FAQ — плавное открытие */
+.faq-question {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.faq-item.active .faq-question {
+    background: rgba(74, 123, 200, 0.1);
+}
+
+/* Счётчик результатов */
+#resultsCount {
+    font-weight: 600;
+    color: #6a9ae8;
+}
+
+/* Плавное появление карточек каталога */
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.car-card-detailed {
+    animation: card-appear 0.4s ease both;
+}
+
+/* =============================================
+   УЛУЧШЕННЫЕ КРИВЫЕ И АНИМАЦИИ (ГЛОБАЛЬНЫЙ ОВЕРРАЙД)
+
+   ПРАВИЛО: translateY использует только --smooth (без перелёта!).
+   Spring (0.34,1.56,0.64,1) — ТОЛЬКО для scale/rotate.
+   Дистанции подъёма уменьшены чтобы курсор не вылетал из зоны ховера.
+
+   --smooth: cubic-bezier(0.4, 0, 0.2, 1)      — равномерный ease-in-out
+   --spring: cubic-bezier(0.34, 1.56, 0.64, 1) — пружина (только scale/rotate)
+   --slide:  cubic-bezier(0.76, 0, 0.24, 1)    — резкий slide для ::before
+   ============================================= */
+
+/* --- Nav ссылки --- */
+.nav a {
+    transition: color 0.25s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.nav a::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
+.nav a:hover   { transform: translateY(-2px); }
+.nav a:active  { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Кнопка языка --- */
+.nav-lang-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                color 0.25s ease;
+}
+.nav-lang-btn::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
+.nav-lang-btn:active  { transform: translateY(0) scale(0.97) !important; transition: transform 0.12s ease; }
+
+/* --- Hero кнопки: translateY плавный, иконка пружинит --- */
+.hero-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-btn::before { transition: filter 0.3s ease; }
+.hero-btn::after  { transition: left 0.7s cubic-bezier(0.4,0,0.2,1); }
+.hero-btn i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+}
+.hero-btn:hover   { transform: translateY(-6px); }
+.hero-btn:hover i { transform: translateX(6px); }
+.hero-btn:active  { transform: translateY(-1px) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Кнопки в карточках авто (scale — безопасно, не вызывает jitter) --- */
+.car-rent-btn {
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                filter 0.25s ease;
+}
+.car-rent-btn:hover  { transform: scale(1.07); filter: brightness(1.1); }
+.car-rent-btn:active { transform: scale(0.96); transition: transform 0.12s ease; }
+
+/* --- Кнопка аренды в каталоге --- */
+.rent-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.rent-btn::after { transition: left 0.6s cubic-bezier(0.4,0,0.2,1); }
+.rent-btn:hover  { transform: translateY(-5px); }
+.rent-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Кнопки модального окна --- */
+.modal-rent-btn,
+.modal-contact-btn,
+.long-term-card .modal-contact-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                filter 0.25s ease;
+}
+.modal-rent-btn:hover    { transform: translateY(-5px); filter: brightness(1.08); }
+.modal-contact-btn:hover { transform: translateY(-5px); }
+.modal-rent-btn:active,
+.modal-contact-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Кнопка закрытия: rotate безопасен --- */
+.modal-close {
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.25s ease;
+}
+.modal-close:hover  { background: rgba(200,50,50,0.75); transform: rotate(90deg) scale(1.15); }
+.modal-close:active { transform: rotate(90deg) scale(0.9); transition: transform 0.12s ease; }
+
+/* --- Социальные кнопки: подъём уменьшен, scale/rotate пружинит --- */
+.social-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.social-btn::before { transition: filter 0.3s ease; }
+.social-btn:hover   { transform: translateY(-7px) scale(1.12) rotate(-5deg); box-shadow: 0 14px 30px rgba(0,0,0,0.5); }
+.social-btn:active  { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Футер nav: translateX не вызывает jitter --- */
+.footer-nav-btn {
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1),
+                color 0.25s ease,
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.footer-nav-btn::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
+.footer-nav-btn:hover   { transform: translateX(6px); }
+.footer-nav-btn:active  { transform: translateX(2px) scale(0.98); transition: transform 0.12s ease; }
+
+/* --- Оферта кнопка --- */
+.offerta-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                background 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.offerta-btn::after { transition: left 0.6s cubic-bezier(0.4,0,0.2,1); }
+.offerta-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Карточки: translateY плавный, подъём уменьшен до -6px --- */
+.premium-car-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.premium-car-card:hover { transform: translateY(-9px) scale(1.015); }
+.premium-car-card .car-overlay { transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1); }
+
+.car-card-detailed {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+    animation: card-appear 0.55s cubic-bezier(0.4,0,0.2,1) both;
+}
+.car-card-detailed:hover { transform: translateY(-9px) scale(1.015); }
+.car-card-detailed .car-image-detailed img {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+}
+.car-card-detailed:hover .car-image-detailed img { transform: scale(1.07); }
+
+.condition-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.condition-card:hover { transform: translateY(-9px) scale(1.015); }
+.condition-card .condition-icon {
+    display: inline-block;
+    /* spring для rotate/scale — не вызывает jitter */
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
+}
+.condition-card:hover .condition-icon { transform: scale(1.25) rotate(-8deg); }
+
+.contact-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.contact-card:hover { transform: translateY(-9px) scale(1.015); }
+.contact-card .contact-icon {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
+}
+.contact-card:hover .contact-icon { transform: scale(1.3) translateY(-4px); }
+
+.team-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.team-card:hover { transform: translateY(-9px) scale(1.015); }
+.team-card .photo-placeholder {
+    transition: border-color 0.35s ease,
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+.team-card:hover .photo-placeholder { transform: scale(1.05); }
+
+.advantage-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease,
+                background 0.35s ease;
+}
+.advantage-card:hover { transform: translateY(-9px) scale(1.015); }
+.advantage-icon-wrap {
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.advantage-card:hover .advantage-icon-wrap { transform: scale(1.15) rotate(-8deg); }
+
+.step {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.step:hover { transform: translateY(-9px) scale(1.015); }
+.step-icon-wrap {
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.step:hover .step-icon-wrap { transform: scale(1.15) rotate(8deg); }
+
+/* --- Dropdown toggle: translateY убран, только фон --- */
+.dropdown-toggle {
+    transition: background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.dropdown-toggle:active { transform: scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Dropdown меню: появление без spring на translateY --- */
+.dropdown-menu {
+    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1),
+                transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                visibility 0.3s ease;
+}
+.dropdown-menu.show { transform: translateY(4px); }
+.language-dropdown {
+    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1),
+                transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                visibility 0.3s ease;
+}
+.language-dropdown.show { transform: translateY(4px); }
+
+/* --- Dropdown items --- */
+.dropdown-item {
+    transition: background 0.2s ease,
+                padding-left 0.3s cubic-bezier(0.4,0,0.2,1),
+                color 0.2s ease;
+}
+.lang-option {
+    transition: background 0.2s ease,
+                padding-left 0.3s cubic-bezier(0.4,0,0.2,1),
+                color 0.2s ease;
+}
+
+/* --- Reset кнопка --- */
+.reset-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.4s ease,
+                color 0.25s ease;
+}
+.reset-btn:hover   { transform: translateY(-2px); }
+.reset-btn:active  { transform: translateY(0) scale(0.96); transition: transform 0.12s ease; }
+.reset-btn:hover i { animation: spin-once 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+
+/* --- Thumbnail: scale безопасен --- */
+.thumbnail {
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+                border-color 0.25s ease,
+                box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.thumbnail:hover  { transform: scale(1.1); }
+.thumbnail:active { transform: scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Spec items --- */
+.spec-item {
+    transition: background 0.25s ease;
+}
+.spec-item i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
+}
+.spec-item:hover i { transform: scale(1.3) rotate(-10deg); }
+
+/* --- Discounts toggle --- */
+.discounts-toggle {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                background 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.4s ease;
+}
+.discounts-toggle:hover  { transform: translateY(-2px); }
+.discounts-toggle:active { transform: translateY(0) scale(0.98); transition: transform 0.12s ease; }
+.discounts-toggle .fa-chevron-down {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.discounts-toggle.active .fa-chevron-down { transform: rotate(180deg); }
+
+/* --- FAQ: translateX не вызывает jitter --- */
+.faq-question {
+    transition: background 0.25s ease,
+                transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.faq-question:hover { transform: translateX(4px); }
+.faq-question i {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+/* --- Contact links: translateX безопасен --- */
+.contact-link {
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                color 0.25s ease;
+}
+.contact-link:hover { transform: translateX(5px); }
+.contact-link i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
+}
+.contact-link:hover i { transform: scale(1.2) rotate(-5deg); color: #6a9ae8; }
+
+/* --- Phone/address в хедере --- */
+.phone-link, .address-link {
+    display: block;
+    transition: color 0.25s ease,
+                transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.phone-link:hover, .address-link:hover { transform: translateX(3px); }
+
+/* --- Submit кнопка --- */
+.submit-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                filter 0.25s ease;
+}
+.submit-btn:hover  { transform: translateY(-5px); filter: brightness(1.1); }
+.submit-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+
+/* --- Logo: scale безопасен --- */
+.logo-img { transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+.logo-img:hover { transform: scale(1.08); }
+
+/* --- Period row --- */
+.period-row {
+    transition: background 0.25s ease,
+                padding-left 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* --- Scrolling items: scale + translateY небольшой --- */
+.scrolling-item {
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.scrolling-item:hover { transform: translateY(-5px) scale(1.05); }
+
+/* --- Section CTA --- */
+.section-cta-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.25s ease;
+}
+.section-cta-btn::before { transition: left 0.5s cubic-bezier(0.76,0,0.24,1); }
+.section-cta-btn:hover   { transform: translateY(-5px); }
+.section-cta-btn:active  { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
+.section-cta-btn i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+}
+.section-cta-btn:hover i { transform: translateX(7px); }
+
+/* --- CTA кнопки --- */
+.cta-btn {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                filter 0.25s ease;
+}
+.cta-btn:active { transform: translateY(0) scale(0.96) !important; transition: transform 0.12s ease; }
+
+/* --- Reveal --- */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+                transform 0.65s cubic-bezier(0.4,0,0.2,1);
+}
+.reveal-item.visible { opacity: 1; transform: translateY(0); }
+
+/* --- Hero анимации --- */
+.hero-animate-left  { animation: slide-in-left  0.9s cubic-bezier(0.4,0,0.2,1) 0.15s forwards; }
+.hero-animate-right { animation: slide-in-right 0.9s cubic-bezier(0.4,0,0.2,1) 0.35s forwards; }
+
+/* --- card-appear --- */
+@keyframes card-appear {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =============================================
+   ГЛАВНАЯ СТРАНИЦА — НОВЫЕ СТИЛИ
+   ============================================= */
+
+/* --- Hero eyebrow label --- */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6a9ae8;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    background: #6a9ae8;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(106, 154, 232, 0.5); }
+    50%       { box-shadow: 0 0 0 6px rgba(106, 154, 232, 0); }
+}
+
+/* --- Hero stats --- */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.hero-stat-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    display: inline-block;
+}
+
+.hero-stat-suffix {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #6a9ae8;
+    display: inline-block;
+    margin-top: -2.5rem;
+    margin-left: 0;
+    align-self: flex-start;
+    position: relative;
+    top: 0;
+}
+
+/* reflow suffix as part of the number row */
+.hero-stat {
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.hero-stat-num,
+.hero-stat-suffix {
+    line-height: 1;
+    margin: 0;
+}
+
+.hero-stat-suffix {
+    font-size: 1.8rem;
+    color: #6a9ae8;
+    margin-bottom: 0.05rem;
+    margin-left: 2px;
+}
+
+.hero-stat-label {
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.25rem;
+    letter-spacing: 0.03em;
+}
+
+.hero-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+}
+
+/* --- Hero outline button --- */
+.hero-btn-outline {
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+}
+
+.hero-btn-outline::before {
+    background: rgba(255,255,255,0.08) !important;
+}
+
+.hero-btn-outline:hover {
+    border-color: rgba(106, 154, 232, 0.6);
+    box-shadow: 0 10px 25px rgba(74, 123, 200, 0.2) !important;
+}
+
+/* --- Hero Showcase card --- */
+.hero-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showcase-card {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    overflow: visible;
+}
+
+/* Rotating rings */
+.showcase-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(106, 154, 232, 0.15);
+    pointer-events: none;
+}
+
+.ring-1 {
+    width: 340px;
+    height: 340px;
+    animation: ring-rotate 20s linear infinite;
+    border-style: dashed;
+    border-color: rgba(106, 154, 232, 0.2);
+}
+
+.ring-2 {
+    width: 480px;
+    height: 480px;
+    animation: ring-rotate 30s linear infinite reverse;
+    border-color: rgba(106, 154, 232, 0.1);
+}
+
+@keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Big car icon */
+.showcase-car-icon {
+    font-size: 7rem;
+    color: rgba(106, 154, 232, 0.7);
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 30px rgba(74, 123, 200, 0.5));
+    animation: car-float 4s ease-in-out infinite;
+}
+
+@keyframes car-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-12px); }
+}
+
+.showcase-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+/* Floating badges */
+.showcase-badge {
+    position: absolute;
+    background: rgba(30, 30, 50, 0.9);
+    border: 1px solid rgba(106, 154, 232, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.showcase-badge i {
+    color: #6a9ae8;
+}
+
+.badge-top-left {
+    top: 28px;
+    left: -20px;
+    animation: badge-float 3.5s ease-in-out infinite;
+}
+
+.badge-top-right {
+    top: 28px;
+    right: -20px;
+    animation: badge-float 4s ease-in-out infinite 0.5s;
+}
+
+.badge-bottom {
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: badge-float 3s ease-in-out infinite 1s;
+}
+
+@keyframes badge-float {
+    0%, 100% { transform: translateY(0) translateX(var(--tx, 0)); }
+    50%       { transform: translateY(-6px) translateX(var(--tx, 0)); }
+}
+
+.badge-bottom {
+    --tx: -50%;
+}
+
+/* --- Hero entrance animations --- */
+.hero-animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slide-in-left 0.9s ease 0.2s forwards;
+}
+
+.hero-animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slide-in-right 0.9s ease 0.4s forwards;
+}
+
+@keyframes slide-in-left {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Scroll reveal system --- */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Advantages Section --- */
+.advantages {
+    padding: 5rem 0;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.advantage-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4a7bc8, #6a9ae8, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.advantage-card:hover::before {
+    opacity: 1;
+}
+
+.advantage-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(74, 123, 200, 0.4);
+    box-shadow: 0 20px 50px rgba(74, 123, 200, 0.2);
+    background: rgba(255,255,255,0.07);
+}
+
+.advantage-icon-wrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: rgba(74, 123, 200, 0.15);
+    border: 1px solid rgba(74, 123, 200, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: #6a9ae8;
+    transition: all 0.3s ease;
+}
+
+.advantage-card:hover .advantage-icon-wrap {
+    background: rgba(74, 123, 200, 0.25);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 25px rgba(74, 123, 200, 0.3);
+}
+
+.advantage-card h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.advantage-card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- How it works Section --- */
+.how-it-works {
+    padding: 5rem 0;
+}
+
+.steps-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+.step:hover {
+    transform: translateY(-8px);
+    border-color: rgba(74, 123, 200, 0.4);
+    box-shadow: 0 20px 50px rgba(74, 123, 200, 0.2);
+}
+
+.step-num {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(74, 123, 200, 0.2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: Arial, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.step-icon-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(74, 123, 200, 0.15);
+    border: 1px solid rgba(74, 123, 200, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-size: 1.5rem;
+    color: #6a9ae8;
+    transition: all 0.3s ease;
+}
+
+.step:hover .step-icon-wrap {
+    background: rgba(74, 123, 200, 0.25);
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(74, 123, 200, 0.3);
+}
+
+.step h3 {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.8rem;
+}
+
+.step p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.step-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    padding-top: 3.5rem;
+    flex-shrink: 0;
+}
+
+.connector-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(74, 123, 200, 0.3), rgba(106, 154, 232, 0.6), rgba(74, 123, 200, 0.3));
+}
+
+.connector-arrow {
+    color: #6a9ae8;
+    font-size: 0.9rem;
+    margin-left: 4px;
+    opacity: 0.7;
+}
+
+/* --- Section CTA button --- */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.section-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #4a7bc8, #6a9ae8);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.section-cta-btn:hover::before {
+    left: 0;
+}
+
+.section-cta-btn:hover {
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 123, 200, 0.4);
+}
+
+.section-cta-btn i {
+    transition: transform 0.3s ease;
+}
+
+.section-cta-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* --- Car image icon (placeholder) --- */
+.car-image {
+    position: relative;
+}
+
+.car-image-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: rgba(255,255,255,0.12);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.premium-car-card:hover .car-image-icon {
+    color: rgba(106, 154, 232, 0.25);
+    transform: translate(-50%, -55%) scale(1.1);
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-banner-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(74, 123, 200, 0.12), rgba(106, 154, 232, 0.08), rgba(74, 123, 200, 0.12));
+    border-top: 1px solid rgba(74, 123, 200, 0.2);
+    border-bottom: 1px solid rgba(74, 123, 200, 0.2);
+}
+
+.cta-content {
+    position: relative;
+    text-align: center;
+}
+
+.cta-icon {
+    font-size: 3.5rem;
+    color: #6a9ae8;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 20px rgba(74, 123, 200, 0.5));
+    animation: car-float 4s ease-in-out infinite;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+}
+
+.cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-btn-primary {
+    background: linear-gradient(135deg, #4a7bc8, #6a9ae8);
+    color: white;
+    box-shadow: 0 8px 25px rgba(74, 123, 200, 0.4);
+}
+
+.cta-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(74, 123, 200, 0.5);
+}
+
+.cta-btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+
+.cta-btn-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+    filter: brightness(1.1);
+}
+
+.cta-btn-telegram {
+    background: #0088cc;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3);
+}
+
+.cta-btn-telegram:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 136, 204, 0.4);
+    filter: brightness(1.1);
+}
+
+/* --- Responsive for new sections --- */
+@media (max-width: 900px) {
+    .showcase-card {
+        width: 320px;
+        height: 320px;
+    }
+
+    .showcase-car-icon {
+        font-size: 5rem;
+    }
+
+    .ring-2 {
+        width: 380px;
+        height: 380px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .steps-container {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-showcase {
+        display: none;
+    }
+
+    .hero-stats {
+        gap: 1rem;
+    }
+
+    .hero-stat-num {
+        font-size: 2rem;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-btn {
+        justify-content: center;
+    }
+}
+
+/* =============================================
+   КАСТОМНЫЙ СКРОЛЛБАР
+   ============================================= */
+
+/* Глобальный скроллбар страницы */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 14, 30, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3a6bc0, #2a4fa0);
+    border-radius: 4px;
+    border: 1px solid rgba(106, 154, 232, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #4a7bc8, #3a6bc0);
+}
+
+::-webkit-scrollbar-corner {
+    background: rgba(10, 14, 30, 0.8);
+}
+
+/* Скроллбар внутри модального окна */
+.modal-info::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-info::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0 16px 16px 0;
+}
+
+.modal-info::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4a7bc8, #2a4fa0);
+    border-radius: 3px;
+}
+
+.modal-info::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #6a9ae8, #4a7bc8);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3a6bc0 rgba(10, 14, 30, 0.8);
+}
+
+.modal-info {
+    scrollbar-width: thin;
+    scrollbar-color: #4a7bc8 rgba(255, 255, 255, 0.03);
+}
+
+/* =============================================
+   ГАМБУРГЕР + ФОРМ-КЛАССЫ (глобально)
+   ============================================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                opacity 0.25s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Phone link — только внутри мобильного меню */
+.nav-mobile-phone { display: none; }
+
+/* Partnership form rows */
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.form-row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* =============================================
+   АДАПТИВКА — ПЛАНШЕТЫ И МОБИЛЬНЫЕ (≤768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* --- Hamburger visible --- */
+    .hamburger { display: flex; }
+
+    /* --- Header --- */
+    .header { top: 8px; }
+    .header-container { padding: 0.65rem 1rem; width: 96%; border-radius: 12px; }
+    .header-content { flex-direction: row; justify-content: space-between; align-items: center; gap: 0; flex-wrap: nowrap; }
+    .logo-img { width: 72px; height: 56px; margin: -6px 0; }
+    .header-right { display: none; }
+
+    /* --- Nav — мобильное выпадающее меню --- */
+    .header-container { position: relative; }
+    .nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        width: 100%;
+        background: rgba(12, 16, 35, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 14px;
+        border: 1px solid rgba(106, 154, 232, 0.25);
+        flex-direction: column;
+        gap: 0;
+        padding: 6px;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+        z-index: 1050;
+        animation: none;
+    }
+    .nav.open { display: flex; }
+    .nav a {
+        padding: 0.85rem 1.2rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        text-align: left;
+        white-space: normal;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav a:last-child { border-bottom: none; }
+    .nav a::before { display: none; } /* убираем hover-фон слайдер на мобиле */
+
+    /* Phone в мобильном меню */
+    .nav-mobile-phone {
+        display: flex !important;
+        align-items: center;
+        gap: 0.6rem;
+        color: #6a9ae8 !important;
+        font-weight: 600;
+        border-top: 1px solid rgba(106,154,232,0.2) !important;
+        margin-top: 4px;
+        padding-top: 0.9rem !important;
+    }
+
+    /* --- Hero sections --- */
+    .conditions-hero, .contacts-hero, .documents-hero {
+        padding: 100px 0 40px;
+    }
+    .conditions-hero h1, .contacts-hero h1, .documents-hero h1 {
+        font-size: 1.9rem;
+    }
+    .catalog-hero { padding: 100px 0 130px; }
+    .catalog-hero h1 { font-size: 1.9rem; margin-bottom: 1.2rem; }
+
+    /* --- Filters --- */
+    .filters-section { padding: 1.2rem; margin-bottom: 1.5rem; }
+    .filters-section.compact-filters { padding: 1rem; }
+    .filter-buttons { flex-direction: column; gap: 0.5rem; }
+    .dropdown-toggle { width: 100%; min-width: unset; }
+    .reset-btn { width: 100%; justify-content: center; }
+    .search-box input { font-size: 0.95rem; }
+
+    /* --- Catalog grid --- */
+    .catalog-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* --- Modal — почти полный экран --- */
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 95vh;
+        margin: 2.5vh auto 0;
+        border-radius: 16px 16px 0 0;
+    }
+    .modal-body { grid-template-columns: 1fr; height: auto; overflow: visible; }
+    .modal-gallery {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .main-image { height: 195px; flex-shrink: 0; }
+    .image-thumbnails {
+        flex-shrink: 0;
+        padding: 0.5rem 0.7rem;
+        gap: 0.4rem;
+        background: rgba(0,0,0,0.5);
+    }
+    .thumbnail { width: 46px; height: 46px; }
+    .modal-info { padding: 1rem 1.1rem; }
+    .modal-info h2 { font-size: 1.3rem; }
+    .modal-info > p { font-size: 0.85rem; }
+    .spec-grid { grid-template-columns: repeat(2, 1fr); gap: 0.35rem; }
+    .spec-item { font-size: 0.8rem; }
+    .modal-features ul { grid-template-columns: 1fr; }
+    .pricing-container { flex-direction: column; gap: 10px; }
+    .modal-actions { flex-direction: column; gap: 0.6rem; }
+
+    /* --- Partnership form --- */
+    .form-row-2 { grid-template-columns: 1fr; }
+    .form-row-3 { grid-template-columns: 1fr; }
+
+    /* --- Conditions/Contacts grids --- */
+    .conditions-grid { grid-template-columns: 1fr; }
+    .contact-form-section { grid-template-columns: 1fr; }
+
+    /* --- Advantages (index) --- */
+    .advantages-grid { grid-template-columns: 1fr; }
+    .steps-container { gap: 1rem; }
+    .step-connector { display: none; }
+
+    /* --- Footer --- */
+    .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+    .footer-nav { flex-direction: column; gap: 0.4rem; }
+    .footer-description { font-size: 0.9rem; }
+    .footer-stats { gap: 1rem; }
+
+    /* --- Scrolling banner --- */
+    .scrolling-item { font-size: 0.9rem; padding: 0.5rem 1rem; }
+
+    /* --- Sections общее --- */
+    .section-header h2 { font-size: 1.7rem; }
+    .container { padding: 0 1rem; }
+}
+
+/* =============================================
+   АДАПТИВКА — МАЛЕНЬКИЕ ТЕЛЕФОНЫ (≤480px)
+   ============================================= */
+@media (max-width: 480px) {
+
+    .header-container { border-radius: 10px; }
+    .logo-img { width: 60px; height: 46px; }
+
+    /* Hero */
+    .conditions-hero, .contacts-hero, .documents-hero { padding: 90px 0 30px; }
+    .conditions-hero h1, .contacts-hero h1, .documents-hero h1 { font-size: 1.6rem; }
+    .catalog-hero { padding: 90px 0 115px; }
+    .catalog-hero h1 { font-size: 1.5rem; }
+    .hero-title { font-size: 1.9rem !important; }
+    .hero-eyebrow { font-size: 0.75rem; }
+
+    /* Modal */
+    .main-image { height: 160px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .modal-info { padding: 0.8rem 0.9rem; }
+
+    /* Cards */
+    .condition-card, .contact-card, .team-card { padding: 1.2rem; }
+    .advantage-card { padding: 1.2rem; }
+
+    /* Sections */
+    .section-header h2 { font-size: 1.5rem; }
+    .faq-question { padding: 1.1rem; font-size: 0.95rem; }
+
+    /* Pricing in modal */
+    .price-main { font-size: 1.2rem; }
+
+    /* Document section */
+    .document-container { padding: 1.5rem 1rem; }
 }

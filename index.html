@@ -28,11 +28,17 @@
                     <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
                 </div>
 
-                <nav class="nav">
+                <button class="hamburger" id="hamburger" aria-label="Меню">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <nav class="nav" id="mainNav">
                     <a href="index.html" class="active">Главная</a>
                     <a href="catalog.html">Автопарк</a>
                     <a href="conditions.html">Условия</a>
+                    <a href="partnership.html">Партнёрство</a>
                     <a href="contacts.html">Контакты</a>
+                    <a href="tel:+77080770098" class="nav-mobile-phone"><i class="fas fa-phone"></i> +7 708 077 00-98</a>
                 </nav>
 
                 <div class="header-right">
@@ -67,77 +73,208 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">ICAR - лучший сервис по аренде автомобилей</h1>
-                    <p class="hero-subtitle">Обслуживаем более 1000 клиентов по всему Казахстану</p>
+                <!-- Left: text block -->
+                <div class="hero-text hero-animate-left">
+                    <div class="hero-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Аренда авто в Казахстане
+                    </div>
+                    <h1 class="hero-title">ICAR — лучший сервис по аренде автомобилей</h1>
+                    <p class="hero-subtitle">Широкий автопарк, прозрачные условия и поддержка 24/7. Ваш идеальный автомобиль ждёт.</p>
+
+                    <!-- Animated Stats -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-num" data-target="1000">0</div>
+                            <div class="hero-stat-suffix">+</div>
+                            <div class="hero-stat-label">Довольных клиентов</div>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-num" data-target="50">0</div>
+                            <div class="hero-stat-suffix">+</div>
+                            <div class="hero-stat-label">Автомобилей</div>
+                        </div>
+                        <div class="hero-stat-divider"></div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-num" data-target="3">0</div>
+                            <div class="hero-stat-suffix">+</div>
+                            <div class="hero-stat-label">Лет на рынке</div>
+                        </div>
+                    </div>
 
                     <div class="hero-buttons">
                         <a href="catalog.html" class="hero-btn catalog-btn">
-                            <span>Посмотреть каталог</span>
+                            <span>Смотреть каталог</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="conditions.html" class="hero-btn conditions-btn">
-                            <span>Посмотреть условия</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="tel:+77080770098" class="hero-btn hero-btn-outline">
+                            <i class="fas fa-phone"></i>
+                            <span>Позвонить</span>
                         </a>
                     </div>
                 </div>
 
-                <div class="hero-images">
-                    <div class="hero-image-card">
-                        <div class="image-gradient gradient-1"></div>
-                        <div class="car-silhouette"></div>
-                    </div>
-                    <div class="hero-image-card">
-                        <div class="image-gradient gradient-2"></div>
-                        <div class="car-silhouette"></div>
+                <!-- Right: showcase card -->
+                <div class="hero-showcase hero-animate-right">
+                    <div class="showcase-card">
+                        <!-- Decorative circles -->
+                        <div class="showcase-ring ring-1"></div>
+                        <div class="showcase-ring ring-2"></div>
+                        <!-- Main icon -->
+                        <div class="showcase-car-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <!-- Floating badges -->
+                        <div class="showcase-badge badge-top-left">
+                            <i class="fas fa-shield-alt"></i> Страхование
+                        </div>
+                        <div class="showcase-badge badge-top-right">
+                            <i class="fas fa-headset"></i> 24/7
+                        </div>
+                        <div class="showcase-badge badge-bottom">
+                            <i class="fas fa-tag"></i> от 5 000 ₸/сутки
+                        </div>
+                        <!-- Bottom label -->
+                        <div class="showcase-label">Более 50 автомобилей в наличии</div>
                     </div>
                 </div>
             </div>
 
+            <!-- Scrolling text strip -->
             <div class="scrolling-text-container">
                 <div class="scrolling-track">
                     <div class="scrolling-content">
-                        <div class="scrolling-item">Премиальные автомобили</div>
-                        <div class="scrolling-item">Гибкие условия аренды</div>
-                        <div class="scrolling-item">Круглосуточная поддержка</div>
-                        <div class="scrolling-item">Лучшие цены в Астане</div>
-                        <div class="scrolling-item">Более 50 моделей в автопарке</div>
-                        <div class="scrolling-item">Страхование включено</div>
-                        <div class="scrolling-item">Доставка автомобиля</div>
-                        <div class="scrolling-item">Техническая поддержка 24/7</div>
-                        <div class="scrolling-item">Премиальные автомобили</div>
-                        <div class="scrolling-item">Гибкие условия аренды</div>
-                        <div class="scrolling-item">Круглосуточная поддержка</div>
-                        <div class="scrolling-item">Лучшие цены в Астане</div>
-                        <div class="scrolling-item">Более 50 моделей в автопарке</div>
-                        <div class="scrolling-item">Страхование включено</div>
-                        <div class="scrolling-item">Доставка автомобиля</div>
-                        <div class="scrolling-item">Техническая поддержка 24/7</div>
+                        <div class="scrolling-item"><i class="fas fa-star"></i> Премиальные автомобили</div>
+                        <div class="scrolling-item"><i class="fas fa-handshake"></i> Гибкие условия аренды</div>
+                        <div class="scrolling-item"><i class="fas fa-headset"></i> Поддержка 24/7</div>
+                        <div class="scrolling-item"><i class="fas fa-tag"></i> Лучшие цены в Астане</div>
+                        <div class="scrolling-item"><i class="fas fa-car"></i> Более 50 моделей</div>
+                        <div class="scrolling-item"><i class="fas fa-shield-alt"></i> Страхование включено</div>
+                        <div class="scrolling-item"><i class="fas fa-truck"></i> Доставка автомобиля</div>
+                        <div class="scrolling-item"><i class="fas fa-tools"></i> Техническая поддержка</div>
+                        <div class="scrolling-item"><i class="fas fa-star"></i> Премиальные автомобили</div>
+                        <div class="scrolling-item"><i class="fas fa-handshake"></i> Гибкие условия аренды</div>
+                        <div class="scrolling-item"><i class="fas fa-headset"></i> Поддержка 24/7</div>
+                        <div class="scrolling-item"><i class="fas fa-tag"></i> Лучшие цены в Астане</div>
+                        <div class="scrolling-item"><i class="fas fa-car"></i> Более 50 моделей</div>
+                        <div class="scrolling-item"><i class="fas fa-shield-alt"></i> Страхование включено</div>
+                        <div class="scrolling-item"><i class="fas fa-truck"></i> Доставка автомобиля</div>
+                        <div class="scrolling-item"><i class="fas fa-tools"></i> Техническая поддержка</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Premium Cars Section -->
-    <section class="premium-cars">
+    <!-- Advantages Section -->
+    <section class="advantages reveal-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Премиальные автомобили</h2>
+            <div class="section-header reveal-item">
+                <div class="section-icon"><i class="fas fa-trophy"></i></div>
+                <h2>Почему выбирают ICar</h2>
+                <p>Мы предлагаем лучший сервис аренды автомобилей в Казахстане</p>
+            </div>
+
+            <div class="advantages-grid">
+                <div class="advantage-card reveal-item">
+                    <div class="advantage-icon-wrap">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Широкий автопарк</h3>
+                    <p>Более 50 автомобилей: от экономичных до премиальных. Всегда есть подходящий вариант.</p>
+                </div>
+                <div class="advantage-card reveal-item">
+                    <div class="advantage-icon-wrap">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Страхование включено</h3>
+                    <p>Полная страховка входит в стоимость аренды. Вы защищены от непредвиденных ситуаций.</p>
+                </div>
+                <div class="advantage-card reveal-item">
+                    <div class="advantage-icon-wrap">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Наши менеджеры всегда на связи. Решаем любые вопросы круглосуточно.</p>
+                </div>
+                <div class="advantage-card reveal-item">
+                    <div class="advantage-icon-wrap">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Честные цены</h3>
+                    <p>Никаких скрытых платежей. Скидки при долгосрочной аренде от 3 дней.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section class="how-it-works reveal-section">
+        <div class="container">
+            <div class="section-header reveal-item">
+                <div class="section-icon"><i class="fas fa-route"></i></div>
+                <h2>Как взять авто в аренду</h2>
+                <p>Всего 3 простых шага — и вы за рулём</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step reveal-item">
+                    <div class="step-num">01</div>
+                    <div class="step-icon-wrap">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Выберите автомобиль</h3>
+                    <p>Просмотрите каталог, выберите класс и модель, которая вам подходит</p>
+                </div>
+                <div class="step-connector reveal-item">
+                    <div class="connector-line"></div>
+                    <i class="fas fa-chevron-right connector-arrow"></i>
+                </div>
+                <div class="step reveal-item">
+                    <div class="step-num">02</div>
+                    <div class="step-icon-wrap">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Свяжитесь с нами</h3>
+                    <p>Позвоните или напишите — менеджер уточнит детали и забронирует авто</p>
+                </div>
+                <div class="step-connector reveal-item">
+                    <div class="connector-line"></div>
+                    <i class="fas fa-chevron-right connector-arrow"></i>
+                </div>
+                <div class="step reveal-item">
+                    <div class="step-num">03</div>
+                    <div class="step-icon-wrap">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Получите ключи</h3>
+                    <p>Заберите авто в нашем офисе или закажите доставку в удобное место</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Cars Section -->
+    <section class="premium-cars reveal-section">
+        <div class="container">
+            <div class="section-header reveal-item">
+                <div class="section-icon"><i class="fas fa-gem"></i></div>
+                <h2>Популярные автомобили</h2>
                 <p>Выберите автомобиль вашей мечты из нашего премиального автопарка</p>
             </div>
 
             <div class="premium-cars-grid">
-                <div class="premium-car-card">
+                <div class="premium-car-card reveal-item">
                     <div class="car-header">
                         <h3>Mercedes-Benz S-Class</h3>
                         <div class="car-badge premium">Премиум</div>
                     </div>
                     <div class="car-image mercedes">
+                        <div class="car-image-icon"><i class="fas fa-car-side"></i></div>
                         <div class="car-overlay">
                             <div class="car-price">от 15 000 ₸/сутки</div>
-                            <button class="car-rent-btn">Арендовать</button>
+                            <a href="catalog.html" class="car-rent-btn">Арендовать</a>
                         </div>
                     </div>
                     <div class="car-features">
@@ -156,15 +293,16 @@
                     </div>
                 </div>
 
-                <div class="premium-car-card">
+                <div class="premium-car-card reveal-item">
                     <div class="car-header">
                         <h3>BMW 7 Series</h3>
                         <div class="car-badge business">Бизнес</div>
                     </div>
                     <div class="car-image bmw">
+                        <div class="car-image-icon"><i class="fas fa-car-side"></i></div>
                         <div class="car-overlay">
                             <div class="car-price">от 14 000 ₸/сутки</div>
-                            <button class="car-rent-btn">Арендовать</button>
+                            <a href="catalog.html" class="car-rent-btn">Арендовать</a>
                         </div>
                     </div>
                     <div class="car-features">
@@ -183,15 +321,16 @@
                     </div>
                 </div>
 
-                <div class="premium-car-card">
+                <div class="premium-car-card reveal-item">
                     <div class="car-header">
                         <h3>Audi A8</h3>
                         <div class="car-badge business">Бизнес</div>
                     </div>
                     <div class="car-image audi">
+                        <div class="car-image-icon"><i class="fas fa-car-side"></i></div>
                         <div class="car-overlay">
                             <div class="car-price">от 13 000 ₸/сутки</div>
-                            <button class="car-rent-btn">Арендовать</button>
+                            <a href="catalog.html" class="car-rent-btn">Арендовать</a>
                         </div>
                     </div>
                     <div class="car-features">
@@ -209,6 +348,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="section-cta reveal-item">
+                <a href="catalog.html" class="section-cta-btn">
+                    Смотреть весь каталог
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -283,5 +429,52 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // ---- Scroll reveal ----
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger delay for reveal-item children
+                    if (entry.target.classList.contains('reveal-section')) {
+                        entry.target.querySelectorAll('.reveal-item').forEach((el, idx) => {
+                            setTimeout(() => el.classList.add('visible'), idx * 120);
+                        });
+                    }
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal-section, .reveal-item').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ---- Count-up for hero stats ----
+        function countUp(el, target, duration) {
+            const start = performance.now();
+            function update(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(eased * target);
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.hero-stat-num').forEach(el => {
+                        countUp(el, parseInt(el.dataset.target), 1800);
+                    });
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsEl = document.querySelector('.hero-stats');
+        if (statsEl) statsObserver.observe(statsEl);
+    </script>
 </body>
 </html>

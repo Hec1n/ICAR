@@ -113,12 +113,36 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('mainNav');
+    if (hamburger && mainNav) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hamburger.classList.toggle('open');
+            mainNav.classList.toggle('open');
+        });
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+                hamburger.classList.remove('open');
+                mainNav.classList.remove('open');
+            }
+        });
+        mainNav.querySelectorAll('a:not(.nav-mobile-phone)').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mainNav.classList.remove('open');
+            });
+        });
+    }
+
     // Initialize all functionality
     initFAQ();
     initContactForm();
     initRentButtons();
     initModal();
     initCustomDropdowns();
+    initDiscountsAccordion();
 
     // Инициализируем фильтры если мы на странице каталога
     if (window.location.pathname.includes('catalog.html') ||
@@ -238,11 +262,11 @@ function initModal() {
     if (modalRentBtn) {
         modalRentBtn.addEventListener('click', function() {
             const carTitle = document.getElementById('modalCarTitle').textContent;
-            const selectedDiscount = document.querySelector('.discount-item.active');
-            const days = selectedDiscount ? selectedDiscount.getAttribute('data-days') : '1';
-            const price = selectedDiscount ? selectedDiscount.getAttribute('data-price') : 'стандартная';
+            const selectedPeriodRow = document.querySelector('.period-row.active');
+            const periodText = selectedPeriodRow ? selectedPeriodRow.querySelector('.period-cell').textContent : '1-2 дня';
+            const price = selectedPeriodRow ? selectedPeriodRow.querySelector('.price-cell').textContent : '35 000 ₸';
 
-            showNotification(`Заявка на аренду ${carTitle} на ${days} дней по цене ${price} ₸/сутки отправлена! Менеджер свяжется с вами.`, 'success');
+            showNotification(`Заявка на аренду ${carTitle} на период ${periodText} по цене ${price}/сутки отправлена! Менеджер свяжется с вами.`, 'success');
             closeModal();
         });
     }
@@ -430,28 +454,54 @@ function renderCars(cars = Object.values(carData)) {
                 <h3>${car.title}</h3>
                 <p class="car-description">${car.description}</p>
 
-                <div class="car-specs">
-                    <div class="spec">
-                        <i class="fas fa-users"></i>
-                        <span>${car.seats}</span>
+                <div class="car-details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <span class="detail-label">Год:</span>
+                        <span class="detail-value">${car.year}</span>
                     </div>
-                    <div class="spec">
-                        <i class="fas fa-cog"></i>
-                        <span>${car.transmission}</span>
+                    <div class="detail-item">
+                        <i class="fas fa-palette"></i>
+                        <span class="detail-label">Цвет:</span>
+                        <span class="detail-value">${getColorName(car.color)}</span>
                     </div>
-                    <div class="spec">
-                        <i class="fas fa-gas-pump"></i>
-                        <span>${car.fuel}</span>
-                    </div>
-                    <div class="spec">
+                    <div class="detail-item">
                         <i class="fas fa-car"></i>
-                        <span>${car.carType}</span>
+                        <span class="detail-label">Тип:</span>
+                        <span class="detail-value">${car.carType}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i>
+                        <span class="detail-label">Мест:</span>
+                        <span class="detail-value">${car.seats}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cog"></i>
+                        <span class="detail-label">КПП:</span>
+                        <span class="detail-value">${car.transmission}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <span class="detail-label">Топливо:</span>
+                        <span class="detail-value">${car.fuel}</span>
                     </div>
                 </div>
 
                 <div class="car-price-section">
-                    <div class="price-main">${car.priceMain}</div>
-                    <div class="price-discount">${car.priceDiscount}</div>
+                    <div class="price-with-deposit">
+                        <div class="price-main">от ${car.periods[0].price.toLocaleString()} ₸/сутки</div>
+                        <div class="deposit-small">Залог: ${car.deposit}</div>
+                    </div>
+                    <div class="price-details">
+                        <div class="price-period">
+                            <span class="period-label">1-2 дня:</span>
+                            <span class="period-price">${car.periods[0].price.toLocaleString()} ₸/сутки</span>
+                        </div>
+                        <div class="price-period">
+                            <span class="period-label">3-5 дней:</span>
+                            <span class="period-price discount">${car.periods[1].price.toLocaleString()} ₸/сутки</span>
+                        </div>
+                    </div>
                 </div>
 
                 <button class="rent-btn" data-car="${car.id}">Арендовать</button>
@@ -495,11 +545,26 @@ function getCityName(cityCode) {
     return cities[cityCode] || cityCode;
 }
 
+// Функция для получения названия цвета
+function getColorName(colorGradient) {
+    const colors = {
+        'linear-gradient(135deg, #ffffff, #e0e0e0)': 'Белый',
+        'linear-gradient(135deg, #000000, #333333)': 'Черный',
+        'linear-gradient(135deg, #808080, #a9a9a9)': 'Серый',
+        'linear-gradient(135deg, #8B4513, #A0522D)': 'Коричневый',
+        'linear-gradient(135deg, #8B4513, #000080)': 'Коричнево-Синий',
+        'linear-gradient(135deg, #87CEEB, #4682B4)': 'Голубой'
+    };
+    return colors[colorGradient] || 'Разный';
+}
+
 // Функция обновления счетчика результатов
 function updateResultsCount(count) {
     const resultsCount = document.getElementById('resultsCount');
     if (resultsCount) {
-        resultsCount.textContent = `Найдено ${count} автомобилей`;
+        const word = count % 10 === 1 && count % 100 !== 11 ? 'автомобиль' :
+                    [2,3,4].includes(count % 10) && ![12,13,14].includes(count % 100) ? 'автомобиля' : 'автомобилей';
+        resultsCount.textContent = `Найдено ${count} ${word}`;
     }
 }
 
@@ -598,7 +663,8 @@ function updateFilters() {
         filteredCars = filteredCars.filter(car =>
             car.title.toLowerCase().includes(searchValue) ||
             car.description.toLowerCase().includes(searchValue) ||
-            car.carType.toLowerCase().includes(searchValue)
+            car.carType.toLowerCase().includes(searchValue) ||
+            getColorName(car.color).toLowerCase().includes(searchValue)
         );
     }
 
@@ -651,42 +717,6 @@ function initFilters() {
     }
 }
 
-// Функция для расчета скидок
-function calculateDiscounts(basePrice, priceSegment) {
-    // Разные коэффициенты скидок в зависимости от класса автомобиля
-    const discountRates = {
-        'premium': { 3: 0.88, 5: 0.85, 7: 0.80, 10: 0.75 },
-        'business': { 3: 0.85, 5: 0.82, 7: 0.78, 10: 0.72 },
-        'comfort': { 3: 0.83, 5: 0.80, 7: 0.76, 10: 0.70 },
-        'economy': { 3: 0.80, 5: 0.77, 7: 0.73, 10: 0.68 }
-    };
-
-    const rates = discountRates[priceSegment] || discountRates.comfort;
-
-    return [
-        {
-            days: 3,
-            price: Math.round(basePrice * rates[3]),
-            savings: Math.round(basePrice - (basePrice * rates[3]))
-        },
-        {
-            days: 5,
-            price: Math.round(basePrice * rates[5]),
-            savings: Math.round(basePrice - (basePrice * rates[5]))
-        },
-        {
-            days: 7,
-            price: Math.round(basePrice * rates[7]),
-            savings: Math.round(basePrice - (basePrice * rates[7]))
-        },
-        {
-            days: 10,
-            price: Math.round(basePrice * rates[10]),
-            savings: Math.round(basePrice - (basePrice * rates[10]))
-        }
-    ];
-}
-
 // Функция открытия модального окна с данными автомобиля
 function openCarModal(car) {
     const modal = document.getElementById('rentModal');
@@ -701,9 +731,33 @@ function openCarModal(car) {
     document.getElementById('modalFuel').textContent = car.fuel;
     document.getElementById('modalType').textContent = car.carType;
     document.getElementById('modalYear').textContent = car.year;
-    document.getElementById('modalMileage').textContent = car.mileage;
-    document.getElementById('modalPriceMain').textContent = car.priceMain;
-    document.getElementById('modalPriceDiscount').textContent = car.priceDiscount;
+
+    // Убедитесь что эти элементы существуют в HTML
+    const modalColor = document.getElementById('modalColor');
+    const modalAdditionalHours = document.getElementById('modalAdditionalHours');
+
+    if (modalColor) modalColor.textContent = getColorName(car.color);
+
+    // Добавляем информацию о дополнительных часах
+    if (modalAdditionalHours && car.pricePerHour) {
+        modalAdditionalHours.textContent = car.pricePerHour;
+        modalAdditionalHours.style.display = 'block';
+    }
+
+    // Обновляем основную цену с залогом
+    const modalPriceMain = document.getElementById('modalPriceMain');
+    if (modalPriceMain) {
+        modalPriceMain.textContent = `${car.periods[0].price.toLocaleString()} ₸/сутки`;
+    }
+
+    // Обновляем блок с залогом
+    const modalPriceWithDeposit = document.getElementById('modalPriceWithDeposit');
+    if (modalPriceWithDeposit) {
+        modalPriceWithDeposit.innerHTML = `
+            <div class="price-main">${car.periods[0].price.toLocaleString()} ₸/сутки</div>
+            <div class="deposit-small">Залог: ${car.deposit}</div>
+        `;
+    }
 
     // Обновляем список особенностей
     const featuresList = document.getElementById('modalFeaturesList');
@@ -723,99 +777,149 @@ function openCarModal(car) {
                               onerror="this.onerror=null; this.src='images/cars/default.jpg'; this.alt='Фото автомобиля'">`;
     }
 
-    // Обновляем миниатюры
+    // Обновляем миниатюры — сначала полный сброс
     const thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach((thumbnail, index) => {
-        const placeholder = thumbnail.querySelector('.thumbnail-placeholder');
-        if (placeholder && car.images[index]) {
-            // Заменяем placeholder на img
+        // Сбрасываем содержимое
+        thumbnail.innerHTML = '';
+        thumbnail.classList.remove('active');
+        thumbnail.replaceWith(thumbnail.cloneNode(false)); // снимаем старые listeners
+    });
+
+    // Заново выбираем после cloneNode
+    const freshThumbnails = document.querySelectorAll('.thumbnail');
+    freshThumbnails[0] && freshThumbnails[0].classList.add('active');
+
+    freshThumbnails.forEach((thumbnail, index) => {
+        if (car.images[index]) {
             const img = document.createElement('img');
             img.src = `images/cars/${car.id}/${car.images[index]}`;
             img.alt = `${car.title} - фото ${index + 1}`;
             img.onerror = function() {
                 this.style.display = 'none';
-                const fallbackPlaceholder = document.createElement('div');
-                fallbackPlaceholder.className = 'thumbnail-placeholder';
-                fallbackPlaceholder.textContent = index + 1;
-                thumbnail.appendChild(fallbackPlaceholder);
+                const ph = document.createElement('div');
+                ph.className = 'thumbnail-placeholder';
+                ph.textContent = index + 1;
+                thumbnail.appendChild(ph);
             };
-
-            // Удаляем placeholder и добавляем img
-            placeholder.remove();
             thumbnail.appendChild(img);
-
-            // Добавляем обработчик клика для миниатюр
-            thumbnail.addEventListener('click', function() {
-                // Обновляем главное фото
-                if (carImage) {
-                    carImage.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-                }
-
-                // Обновляем активную миниатюру
-                thumbnails.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
+        } else {
+            const ph = document.createElement('div');
+            ph.className = 'thumbnail-placeholder';
+            ph.textContent = index + 1;
+            thumbnail.appendChild(ph);
         }
+
+        thumbnail.addEventListener('click', function() {
+            if (carImage && car.images[index]) {
+                carImage.innerHTML = `<img src="images/cars/${car.id}/${car.images[index]}" alt="${car.title} - фото ${index + 1}">`;
+            }
+            freshThumbnails.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
     });
 
-    // ГЕНЕРИРУЕМ БЛОК СКИДОК
-    generateDiscounts(car);
+    // Сбрасываем аккордеон скидок при открытии новой машины
+    const discountsToggle = document.getElementById('discountsToggle');
+    const discountsContent = document.getElementById('discountsContent');
+    if (discountsToggle && discountsContent) {
+        discountsToggle.classList.remove('active');
+        discountsContent.classList.remove('show');
+        const icon = discountsToggle.querySelector('i');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+    }
+
+    // ГЕНЕРИРУЕМ БЛОК ЦЕН ПО ПЕРИОДАМ
+    generatePeriodsTable(car);
 
     // Показываем модальное окно
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
-// Функция генерации блока скидок
-function generateDiscounts(car) {
+// Функция генерации таблицы периодов
+// Функция генерации таблицы периодов (убрана строка 31+)
+function generatePeriodsTable(car) {
     const discountsGrid = document.getElementById('discountsGrid');
     if (!discountsGrid) return;
 
-    const discounts = calculateDiscounts(car.basePrice, car.priceSegment);
+    // Фильтруем периоды, убираем те, где minDays >= 31 (долгосрочные)
+    const filteredPeriods = car.periods.filter(period => period.minDays < 31);
 
-    discountsGrid.innerHTML = discounts.map(discount => `
-        <div class="discount-item" data-days="${discount.days}" data-price="${discount.price}">
-            <div class="discount-period">${discount.days} дней</div>
-            <div class="discount-price">${discount.price} ₸/сутки</div>
-            <div class="discount-savings">Экономия: ${discount.savings} ₸/сутки</div>
+    // Создаем таблицу периодов
+    discountsGrid.innerHTML = `
+        <div class="periods-table">
+            <div class="periods-header">
+                <div class="period-header">Период аренды</div>
+                <div class="price-header">Цена за сутки</div>
+            </div>
+            ${filteredPeriods.map(period => {
+                // Формируем текст периода
+                let periodText;
+                if (period.maxDays) {
+                    periodText = `${period.minDays}-${period.maxDays} ${getDayWord(period.maxDays)}`;
+                } else {
+                    periodText = `${period.minDays}+ ${getDayWord(period.minDays)}`;
+                }
+                return `
+                <div class="period-row" data-days="${period.minDays}" data-price="${period.price}" data-period-text="${periodText}">
+                    <div class="period-cell">
+                        ${periodText}
+                    </div>
+                    <div class="price-cell">
+                        ${period.price.toLocaleString()} ₸
+                    </div>
+                </div>
+                `;
+            }).join('')}
         </div>
-    `).join('');
+    `;
 
     // Добавляем обработчики для выбора периода аренды
-    const discountItems = document.querySelectorAll('.discount-item');
-    discountItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Убираем активный класс у всех элементов
-            discountItems.forEach(i => i.classList.remove('active'));
-            // Добавляем активный класс к выбранному элементу
+    const periodRows = document.querySelectorAll('.period-row');
+    periodRows.forEach(row => {
+        row.addEventListener('click', function() {
+            // Убираем активный класс у всех строк
+            periodRows.forEach(r => r.classList.remove('active'));
+            // Добавляем активный класс к выбранной строке
             this.classList.add('active');
 
             // Обновляем основную цену на выбранный вариант
             const days = this.getAttribute('data-days');
             const price = this.getAttribute('data-price');
+            const periodText = this.getAttribute('data-period-text');
             const modalPriceMain = document.getElementById('modalPriceMain');
-            const modalPriceDiscount = document.getElementById('modalPriceDiscount');
             const modalRentBtn = document.getElementById('modalRentBtn');
+            const modalPriceWithDeposit = document.getElementById('modalPriceWithDeposit');
 
             if (modalPriceMain) {
                 modalPriceMain.textContent = `${price} ₸/сутки`;
             }
-            if (modalPriceDiscount) {
-                modalPriceDiscount.textContent = `При аренде на ${days} дней`;
+            if (modalPriceWithDeposit) {
+                modalPriceWithDeposit.innerHTML = `
+                    <div class="price-main">${price} ₸/сутки</div>
+                    <div class="deposit-small">Залог: ${car.deposit}</div>
+                `;
             }
             if (modalRentBtn) {
-                modalRentBtn.textContent = `Забронировать на ${days} дней`;
+                modalRentBtn.textContent = `Забронировать на ${periodText}`;
             }
         });
     });
 
-    // Активируем первую скидку по умолчанию
-    if (discountItems[0]) {
-        discountItems[0].click();
+    // Активируем первую строку по умолчанию
+    if (periodRows[0]) {
+        periodRows[0].click();
     }
 
-    // Инициализируем аккордеон
-    initDiscountsAccordion();
+}
+
+// Функция для получения правильной формы слова "день"
+function getDayWord(days) {
+    if (typeof days === 'string') days = parseInt(days);
+    if (days % 10 === 1 && days % 100 !== 11) return 'день';
+    if (days % 10 >= 2 && days % 10 <= 4 && (days % 100 < 10 || days % 100 >= 20)) return 'дня';
+    return 'дней';
 }
 
 // Функция для управления аккордеоном скидок
