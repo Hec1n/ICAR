@@ -83,7 +83,7 @@ const carData = {
             { minDays: 31, price: 35000 }
         ],
         features: ['Электропривод', 'Панорамная крыша', 'Премиум аудио', 'Автопилот'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['zeekr-001-1.jpg', 'zeekr-001-2.jpg', 'zeekr-001-3.jpg', 'zeekr-001-4.jpg', 'zeekr-001-5.jpg'],
         color: 'linear-gradient(135deg, #87CEEB, #4682B4)',
         carNumber: '323 AQZ 01',
         deposit: '30 000 ₸',
@@ -173,7 +173,7 @@ const carData = {
             { minDays: 31, price: 25000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: [],
         color: 'linear-gradient(135deg, #808080, #a9a9a9)',
         carNumber: '101 NSE 01',
         deposit: '30 000 ₸',
@@ -263,7 +263,7 @@ const carData = {
             { minDays: 31, price: 26000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyundai-sonata (1).jpg', 'hyundai-sonata (2).jpg', 'hyundai-sonata (3).jpg', 'hyundai-sonata (4).jpg', 'hyundai-sonata (5).jpg', 'hyundai-sonata (6).jpg', 'hyundai-sonata (7).jpg', 'hyundai-sonata (8).jpg'],
         color: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
         carNumber: '565 ANI 01',
         deposit: '20 000 ₸',
@@ -293,7 +293,7 @@ const carData = {
             { minDays: 31, price: 27000 }
         ],
         features: ['Полный привод', 'Трехзонный климат-контроль', 'Панорамная крыша', 'Система парковки'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['santa-fe (1).jpg', 'santa-fe (2).jpg', 'santa-fe (3).jpg', 'santa-fe (4).jpg', 'santa-fe (5).jpg', 'santa-fe (6).jpg', 'santa-fe (7).jpg', 'santa-fe (8).jpg', 'santa-fe (9).jpg'],
         color: 'linear-gradient(135deg, #8B4513, #000080)',
         carNumber: '905 ZCP 01',
         deposit: '20 000 ₸',
@@ -323,7 +323,7 @@ const carData = {
             { minDays: 31, price: 39000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Подогрев сидений'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['toyota-camry-1.PNG', 'toyota-camry-2.PNG', 'toyota-camry-3.PNG', 'toyota-camry-4.PNG', 'toyota-camry-5.PNG', 'toyota-camry-6.PNG', 'toyota-camry-7.PNG', 'toyota-camry-8.PNG'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '099 AWY 01',
         deposit: '20 000 ₸',
@@ -353,7 +353,7 @@ const carData = {
             { minDays: 31, price: 42000 }
         ],
         features: ['Полный привод', 'Память сидений', 'Вентиляция сидений', 'Хэд-ап дисплей'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['palisade (1).jpg', 'palisade (2).jpg', 'palisade (3).jpg', 'palisade (4).jpg', 'palisade (5).jpg', 'palisade (6).jpg', 'palisade (7).jpg', 'palisade (8).jpg', 'palisade (9).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '545 CAZ 01',
         deposit: '20 000 ₸',
@@ -383,7 +383,7 @@ const carData = {
             { minDays: 31, price: 20000 }
         ],
         features: ['Панорамная крыша', 'Камера 360°', 'Бесключевой доступ', 'Светодиодные фары'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['cherry-tiggo (1).jpg', 'cherry-tiggo (2).jpg', 'cherry-tiggo (3).jpg', 'cherry-tiggo (4).jpg', 'cherry-tiggo (5).jpg', 'cherry-tiggo (6).jpg'],
         color: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
         carNumber: '926 ALB 01',
         deposit: '20 000 ₸',
@@ -413,7 +413,7 @@ const carData = {
             { minDays: 31, price: 30000 }
         ],
         features: ['Обновленный дизайн', 'Улучшенная шумоизоляция', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['toyota-camry-1.PNG', 'toyota-camry-2.PNG', 'toyota-camry-3.PNG', 'toyota-camry-4.PNG', 'toyota-camry-5.PNG', 'toyota-camry-6.PNG', 'toyota-camry-7.PNG', 'toyota-camry-8.PNG'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '373 ALT 01',
         deposit: '20 000 ₸',
@@ -443,7 +443,7 @@ const carData = {
             { minDays: 31, price: 27000 }
         ],
         features: ['Сдвижные двери', 'Трехзонный климат-контроль', 'Система парковки', 'Подогрев сидений'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyundai-custin (2).jpg', 'hyundai-custin (3).jpg', 'hyundai-custin (4).jpg', 'hyundai-custin (5).jpg', 'hyundai-custin (6).jpg', 'hyundai-custin (7).jpg'],
         color: 'linear-gradient(135deg, #8B4513, #A0522D)',
         carNumber: '025 AXH 01',
         deposit: '20 000 ₸',
@@ -473,7 +473,7 @@ const carData = {
             { minDays: 31, price: 27000 }
         ],
         features: ['Полный привод', 'Мультимедийная система', 'Подогрев сидений', 'Круиз-контроль'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['jetour-t2 (1).jpg', 'jetour-t2 (2).jpg', 'jetour-t2 (3).jpg', 'jetour-t2 (4).jpg', 'jetour-t2 (5).jpg'],
         color: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
         carNumber: '958 AWR 01',
         deposit: '30 000 ₸',
@@ -503,7 +503,7 @@ const carData = {
             { minDays: 31, price: 42000 }
         ],
         features: ['Электропривод дверей', 'Двухзонный климат-контроль', 'Система развлечений', 'Подогрев руля'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['kia-carnival (2).jpg', 'kia-carnival (3).jpg', 'kia-carnival (4).jpg', 'kia-carnival (5).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '971 ASY 01',
         deposit: '30 000 ₸',
@@ -533,7 +533,7 @@ const carData = {
             { minDays: 31, price: 72000 }
         ],
         features: ['Гибридная установка', 'Автопилот', 'Премиум аудио', 'Массаж сидений', 'Панорамная крыша'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['lixiang (1).jpg', 'lixiang (2).jpg', 'lixiang (3).jpg', 'lixiang (4).jpg', 'lixiang (5).jpg', 'lixiang (6).jpg', 'lixiang (7).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '999 KOS 01',
         deposit: '30 000 ₸',
@@ -563,7 +563,7 @@ const carData = {
             { minDays: 31, price: 26000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Мультимедийная система', 'Подогрев сидений'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['toyota-camry-75-1.JPG', 'toyota-camry-75-2.JPG', 'toyota-camry-75-3.JPG', 'toyota-camry-75-4.JPG', 'toyota-camry-75-5.JPG', 'toyota-camry-75-6.JPG', 'toyota-camry-75-7.JPG', 'toyota-camry-75-8.JPG', 'toyota-camry-75-9.JPG'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '101 GPA 01',
         deposit: '30 000 ₸',
@@ -593,7 +593,7 @@ const carData = {
             { minDays: 31, price: 25000 }
         ],
         features: ['Кондиционер', 'Круиз-контроль', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['toyota-camry-070-1.JPG', 'toyota-camry-070-2.JPG', 'toyota-camry-070-3.JPG', 'toyota-camry-070-4.JPG', 'toyota-camry-070-5.JPG', 'toyota-camry-070-6.JPG', 'toyota-camry-070-7.JPG', 'toyota-camry-070-8.JPG', 'toyota-camry-070-9.JPG', 'toyota-camry-070-10.JPG'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '070 ZEE 17',
         deposit: '30 000 ₸',
@@ -623,7 +623,7 @@ const carData = {
             { minDays: 31, price: 21000 }
         ],
         features: ['Кондиционер', 'Электростеклоподъемники', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: [],
         color: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
         carNumber: '051 AQI 01',
         deposit: '20 000 ₸',
@@ -653,7 +653,7 @@ const carData = {
             { minDays: 31, price: 20000 }
         ],
         features: ['Кондиционер', 'Круиз-контроль', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['toyota_cmary (1).jpg', 'toyota_cmary (2).jpg', 'toyota_cmary (3).jpg', 'toyota_cmary (4).jpg', 'toyota_cmary (5).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '021 ALJ 01',
         deposit: '20 000 ₸',
@@ -683,7 +683,7 @@ const carData = {
             { minDays: 31, price: 21000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Мультимедийная система'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyundai-sonta (1).jpg', 'hyundai-sonta (2).jpg', 'hyundai-sonta (3).jpg', 'hyundai-sonta (4).jpg', 'hyundai-sonta (5).jpg', 'hyundai-sonta (6).jpg', 'hyundai-sonta (7).jpg', 'hyundai-sonta (8).jpg'],
         color: 'linear-gradient(135deg, #808080, #a9a9a9)',
         carNumber: '769 AMJ 01',
         deposit: '20 000 ₸',
@@ -713,7 +713,7 @@ const carData = {
             { minDays: 31, price: 25000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Светодиодные фары'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyundai-sona (1).jpg', 'hyundai-sona (2).jpg', 'hyundai-sona (3).jpg', 'hyundai-sona (4).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '088 AXK 01',
         deposit: '20 000 ₸',
@@ -743,7 +743,7 @@ const carData = {
             { minDays: 31, price: 15000 }
         ],
         features: ['Кондиционер', 'Мультимедийная система', 'Электроусилитель руля'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyundai-elantra (1).jpg', 'hyundai-elantra (2).jpg', 'hyundai-elantra (3).jpg', 'hyundai-elantra (4).jpg', 'hyundai-elantra (5).jpg', 'hyundai-elantra (6).jpg', 'hyundai-elantra (7).jpg'],
         color: 'linear-gradient(135deg, #ffffff, #e0e0e0)',
         carNumber: '134 AFV 01',
         deposit: '20 000 ₸',
@@ -773,7 +773,7 @@ const carData = {
             { minDays: 31, price: 36000 }
         ],
         features: ['Кожаный салон', 'Навигационная система', 'Панорамная крыша', 'Подогрев сидений'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['bmw (1).jpg', 'bmw (2).jpg', 'bmw (3).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '414 ASV 01',
         deposit: '30 000 ₸',
@@ -803,7 +803,7 @@ const carData = {
             { minDays: 31, price: 45000 }
         ],
         features: ['Полный привод', 'Премиум кожа', 'Телематика', 'Камера 360°'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['infinity (1).jpg', 'infinity (2).jpg', 'infinity (3).jpg', 'infinity (4).jpg', 'infinity (5).jpg', 'infinity (6).jpg', 'infinity (7).jpg', 'infinity (8).jpg', 'infinity (9).jpg'],
         color: 'linear-gradient(135deg, #808080, #a9a9a9)',
         carNumber: '552 BBK 01',
         deposit: '40 000 ₸',
@@ -833,7 +833,7 @@ const carData = {
             { minDays: 31, price: 25000 }
         ],
         features: ['Климат-контроль', 'Круиз-контроль', 'Камера заднего вида', 'Светодиодные фары'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['hyunda-sonata (1).jpg', 'hyunda-sonata (2).jpg', 'hyunda-sonata (3).jpg', 'hyunda-sonata (4).jpg', 'hyunda-sonata (5).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '024 AUQ 01',
         deposit: '30 000 ₸',
@@ -863,7 +863,7 @@ const carData = {
             { minDays: 31, price: 78000 }
         ],
         features: ['Полный привод', 'Пневмоподвеска', 'Массаж сидений', 'Премиум аудио', 'Панорамная крыша'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['lexus-570-grey (1).jpg', 'lexus-570-grey (2).jpg', 'lexus-570-grey (3).jpg', 'lexus-570-grey (4).jpg', 'lexus-570-grey (5).jpg', 'lexus-570-grey (6).jpg'],
         color: 'linear-gradient(135deg, #808080, #a9a9a9)',
         carNumber: '580 BGT 02',
         deposit: '40 000 ₸',
@@ -893,7 +893,7 @@ const carData = {
             { minDays: 31, price: 39000 }
         ],
         features: ['Полный привод', 'Пневмоподвеска', 'Массаж сидений', 'Премиум аудио'],
-        images: ['main.jpg', 'interior.jpg', 'exterior.jpg', 'dashboard.jpg'],
+        images: ['lexus-570-black (1).jpg', 'lexus-570-black (2).jpg'],
         color: 'linear-gradient(135deg, #000000, #333333)',
         carNumber: '023 AJB 01',
         deposit: '40 000 ₸',
