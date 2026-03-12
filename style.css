@@ -165,12 +165,12 @@ body {
     height: 80px;
     display: block;
     object-fit: contain;
-    transition: all 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
     margin: -10px 0;
 }
 
 .logo-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .nav {
@@ -185,7 +185,7 @@ body {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: color 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
     padding: 0.5rem 1.2rem;
     border-radius: 25px;
     white-space: nowrap;
@@ -202,7 +202,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #4a7bc8, #6a9ae8, #4a7bc8);
-    transition: all 0.4s ease;
+    transition: left 0.45s cubic-bezier(0.76,0,0.24,1);
     z-index: -1;
 }
 
@@ -215,6 +215,12 @@ body {
 .nav a.active {
     color: white;
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+    transform: translateY(-2px);
+}
+
+.nav a:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .header-right {
@@ -231,11 +237,13 @@ body {
 .phone-link, .address-link {
     text-decoration: none;
     color: white;
-    transition: all 0.3s;
+    transition: color 0.25s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    display: block;
 }
 
 .phone-link:hover, .address-link:hover {
     color: #6a9ae8;
+    transform: translateX(3px);
 }
 
 .phone {
@@ -260,7 +268,7 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), color 0.25s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -281,7 +289,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #4a7bc8, #6a9ae8, #4a7bc8);
-    transition: all 0.4s ease;
+    transition: left 0.45s cubic-bezier(0.76,0,0.24,1);
     z-index: -1;
 }
 
@@ -293,6 +301,11 @@ body {
     color: white;
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
     transform: translateY(-2px);
+}
+
+.nav-lang-btn:active {
+    transform: translateY(0) scale(0.97) !important;
+    transition: transform 0.12s ease;
 }
 
 .language-dropdown {
@@ -307,7 +320,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s;
+    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.3s ease;
     min-width: 150px;
     z-index: 1001;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -316,7 +329,7 @@ body {
 .language-dropdown.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(4px);
 }
 
 .lang-option {
@@ -327,14 +340,15 @@ body {
     background: none;
     cursor: pointer;
     text-align: left;
-    transition: all 0.3s;
+    transition: background 0.2s ease, padding-left 0.3s cubic-bezier(0.4,0,0.2,1), color 0.2s ease;
     color: #fff;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lang-option:hover {
     background: rgba(74, 123, 200, 0.3);
-    color: white;
+    padding-left: 1.5rem;
+    color: #a0c4ff;
 }
 
 /* Hero Section */
@@ -389,7 +403,7 @@ body {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -404,7 +418,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #4a7bc8, #6a9ae8);
     z-index: -1;
-    transition: all 0.3s ease;
+    transition: filter 0.3s ease;
 }
 
 .hero-btn::after {
@@ -415,8 +429,16 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: all 0.6s ease;
+    transition: left 0.7s cubic-bezier(0.4,0,0.2,1);
     z-index: -1;
+}
+
+.hero-btn i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+}
+.hero-btn:hover i {
+    transform: translateX(6px);
 }
 
 .hero-btn:hover::after {
@@ -432,8 +454,13 @@ body {
 }
 
 .hero-btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(74, 123, 200, 0.4);
+}
+
+.hero-btn:active {
+    transform: translateY(-1px) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .hero-images {
@@ -518,12 +545,12 @@ body {
     flex-shrink: 0;
     white-space: nowrap;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .scrolling-item:hover {
     background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.3);
 }
 
@@ -578,7 +605,7 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     display: flex;
@@ -590,7 +617,7 @@ body {
 }
 
 .premium-car-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-9px) scale(1.015);
     box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
     border-color: rgba(74, 123, 200, 0.5);
 }
@@ -663,7 +690,7 @@ body {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
 .premium-car-card:hover .car-overlay {
@@ -685,12 +712,17 @@ body {
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.25s ease;
 }
 
 .car-rent-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+    transform: scale(1.07);
+    filter: brightness(1.1);
+}
+
+.car-rent-btn:active {
+    transform: scale(0.96);
+    transition: transform 0.12s ease;
 }
 
 .car-features {
@@ -773,7 +805,7 @@ body {
 .footer-nav-btn {
     color: white;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1), color 0.25s ease, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     position: relative;
@@ -792,7 +824,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #4a7bc8, #6a9ae8);
-    transition: all 0.4s ease;
+    transition: left 0.45s cubic-bezier(0.76,0,0.24,1);
     z-index: -1;
 }
 
@@ -802,8 +834,13 @@ body {
 
 .footer-nav-btn:hover {
     color: white;
-    transform: translateX(5px);
+    transform: translateX(6px);
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.3);
+}
+
+.footer-nav-btn:active {
+    transform: translateX(2px) scale(0.98);
+    transition: transform 0.12s ease;
 }
 
 .footer-contact {
@@ -815,13 +852,22 @@ body {
 .contact-link {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), color 0.25s ease;
     padding: 0.5rem 0;
 }
 
 .contact-link:hover {
     color: #6a9ae8;
     transform: translateX(5px);
+}
+
+.contact-link i {
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
+}
+.contact-link:hover i {
+    transform: scale(1.2) rotate(-5deg);
+    color: #6a9ae8;
 }
 
 .contact-link p {
@@ -838,16 +884,37 @@ body {
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     margin-bottom: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
 }
 
 .offerta-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(74, 123, 200, 0.25);
+    border-color: rgba(106, 154, 232, 0.5);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.3);
+}
+
+.offerta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.offerta-btn:hover::after {
+    left: 100%;
+}
+.offerta-btn:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .social-links {
@@ -863,7 +930,7 @@ body {
     height: 50px;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
     font-size: 1.3rem;
     position: relative;
     overflow: hidden;
@@ -877,7 +944,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: all 0.3s ease;
+    transition: filter 0.3s ease;
     z-index: -1;
 }
 
@@ -894,12 +961,17 @@ body {
 }
 
 .social-btn:hover {
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-7px) scale(1.12) rotate(-5deg);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.5);
 }
 
 .social-btn:hover::before {
     filter: brightness(1.2);
+}
+
+.social-btn:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .footer-bottom {
@@ -1021,13 +1093,19 @@ body {
     gap: 0.5rem;
     min-width: 200px;
     justify-content: space-between;
-    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 
 .dropdown-toggle:hover {
     background: rgba(106, 154, 232, 0.15);
     border-color: rgba(106, 154, 232, 0.4);
     box-shadow: 0 4px 16px rgba(106, 154, 232, 0.15);
+    transform: translateY(-2px);
+}
+
+.dropdown-toggle:active {
+    transform: scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .dropdown-toggle .fa-chevron-down {
@@ -1095,7 +1173,7 @@ body {
     cursor: pointer;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    transition: background 0.2s ease, padding-left 0.3s cubic-bezier(0.4,0,0.2,1), color 0.2s ease;
     position: relative;
 }
 
@@ -1105,8 +1183,8 @@ body {
 
 .dropdown-item:hover {
     background: rgba(106, 154, 232, 0.15);
-    color: #6a9ae8;
-    padding-left: 1.5rem;
+    color: #a0c4ff;
+    padding-left: 1.6rem;
 }
 
 .dropdown-item.active {
@@ -1125,11 +1203,29 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, border-color 0.25s ease, box-shadow 0.4s ease, color 0.25s ease;
 }
 
 .reset-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 80, 80, 0.2);
+    border-color: rgba(255, 100, 100, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(200, 50, 50, 0.2);
+    color: #ff9090;
+}
+
+.reset-btn:hover i {
+    animation: spin-once 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes spin-once {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+
+.reset-btn:active {
+    transform: translateY(0) scale(0.96);
+    transition: transform 0.12s ease;
 }
 
 .filter-results {
@@ -1151,34 +1247,38 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    animation: card-appear 0.55s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .car-card-detailed:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
-    border-color: rgba(74, 123, 200, 0.5);
+    transform: translateY(-9px) scale(1.015);
+    box-shadow: 0 20px 50px rgba(74, 123, 200, 0.35);
+    border-color: rgba(106, 154, 232, 0.6);
 }
 
 .car-image-detailed {
-    height: 200px;
+    height: 220px;
     position: relative;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .car-image-detailed img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    object-fit: contain;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
 }
 
 .car-card-detailed:hover .car-image-detailed img {
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 .car-card-detailed .car-badge {
@@ -1207,10 +1307,11 @@ body {
 }
 
 .car-info {
-    padding: 1.5rem;
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
     flex: 1;
+    overflow: hidden;
 }
 
 .car-info h3 {
@@ -1221,22 +1322,32 @@ body {
 
 .car-description {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .car-details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .detail-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .detail-item i {
@@ -1258,11 +1369,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
 }
 
 .price-main {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #6a9ae8;
 }
@@ -1307,14 +1418,34 @@ body {
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
     font-size: 1rem;
     margin-top: auto;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
 }
 
 .rent-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+}
+
+.rent-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.rent-btn:hover::after {
+    left: 100%;
+}
+.rent-btn:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 /* Стили для модального окна */
@@ -1335,9 +1466,9 @@ body {
     margin: 2% auto;
     padding: 0;
     border-radius: 16px;
-    width: 86%;
-    max-width: 860px;
-    max-height: 84vh;
+    width: 90%;
+    max-width: 920px;
+    height: 80vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -1360,6 +1491,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), background 0.25s ease;
+}
+
+.modal-close:hover {
+    background: rgba(200, 50, 50, 0.75);
+    transform: rotate(90deg) scale(1.15);
+}
+.modal-close:active {
+    transform: rotate(90deg) scale(0.9);
+    transition: transform 0.12s ease;
 }
 
 .modal-body {
@@ -1374,10 +1515,15 @@ body {
 .modal-gallery {
     position: relative;
     background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .main-image {
     height: 300px;
+    min-height: 300px;
     overflow: hidden;
 }
 
@@ -1387,30 +1533,46 @@ body {
 }
 
 .modal-car-image img {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    display: block;
 }
 
 .image-thumbnails {
     display: flex;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: 0.5rem;
+    gap: 0.4rem;
     background: rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .thumbnail {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     border: 2px solid transparent;
-    transition: all 0.3s;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.25s ease, box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
 .thumbnail.active {
     border-color: #6a9ae8;
+}
+
+.thumbnail:hover {
+    border-color: rgba(106, 154, 232, 0.7);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(74, 123, 200, 0.4);
+}
+.thumbnail:active {
+    transform: scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 .thumbnail img {
@@ -1464,11 +1626,23 @@ body {
     gap: 0.4rem;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
+    transition: background 0.25s ease;
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
 }
 
 .spec-item i {
     color: #6a9ae8;
     font-size: 0.85rem;
+    display: inline-block;
+    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
+}
+
+.spec-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+.spec-item:hover i {
+    transform: scale(1.3) rotate(-10deg);
 }
 
 .modal-price-section {
@@ -1518,20 +1692,41 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), background 0.25s ease, border-color 0.25s ease, box-shadow 0.4s ease;
 }
 
 .discounts-toggle:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(74, 123, 200, 0.2);
+    border-color: rgba(106, 154, 232, 0.5);
+    box-shadow: 0 3px 10px rgba(74, 123, 200, 0.2);
+    transform: translateY(-2px);
+}
+
+.discounts-toggle:active {
+    transform: translateY(0) scale(0.98);
+    transition: transform 0.12s ease;
+}
+.discounts-toggle .fa-chevron-down {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.discounts-toggle.active .fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 .discounts-content {
-    display: none;
-    margin-top: 1rem;
+    display: block !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    margin-top: 0;
 }
 
 .discounts-content.show {
-    display: block;
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 1rem;
 }
 
 .discounts-grid {
@@ -1570,7 +1765,7 @@ body {
     display: flex;
     padding: 0.8rem 1rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background 0.25s ease, padding-left 0.3s cubic-bezier(0.4,0,0.2,1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1640,7 +1835,7 @@ body {
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), filter 0.25s ease;
     font-size: 1rem;
 }
 
@@ -1655,10 +1850,19 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.modal-rent-btn:hover,
-.modal-contact-btn:hover {
-    transform: translateY(-2px);
+.modal-rent-btn:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.08);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.modal-contact-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.modal-rent-btn:active,
+.modal-contact-btn:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 /* Сообщение об отсутствии результатов */
@@ -1773,12 +1977,12 @@ body {
     border-radius: 20px;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease;
     text-align: center;
 }
 
 .condition-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-9px) scale(1.015);
     box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
     border-color: rgba(74, 123, 200, 0.5);
 }
@@ -1787,6 +1991,13 @@ body {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     color: #6a9ae8;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
+}
+
+.condition-card:hover .condition-icon {
+    transform: scale(1.25) rotate(-8deg);
+    color: #a0c4ff;
 }
 
 .condition-card h3 {
@@ -1859,8 +2070,9 @@ body {
     align-items: center;
     color: white;
     font-weight: 500;
-    transition: background 0.25s ease, color 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
     position: relative;
+    border-radius: 12px;
 }
 
 .faq-question::before {
@@ -1883,10 +2095,12 @@ body {
 
 .faq-question:hover {
     background: rgba(255, 255, 255, 0.07);
+    transform: translateX(4px);
 }
 
 .faq-item.active .faq-question {
     color: #6a9ae8;
+    background: rgba(74, 123, 200, 0.1);
 }
 
 .faq-question i {
@@ -1967,14 +2181,20 @@ body {
     border-radius: 20px;
     padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease;
     text-align: center;
 }
 
 .team-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-9px) scale(1.015);
     box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
     border-color: rgba(74, 123, 200, 0.5);
+}
+
+.team-card:hover .photo-placeholder {
+    border-color: rgba(106, 154, 232, 0.6);
+    box-shadow: 0 0 20px rgba(74, 123, 200, 0.3);
+    transform: scale(1.05);
 }
 
 .team-photo {
@@ -1988,6 +2208,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     border: 4px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
 }
 
 .team-photo-img {
@@ -2038,17 +2259,27 @@ body {
     padding: 2rem;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-9px) scale(1.015);
     box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
+    border-color: rgba(74, 123, 200, 0.5);
 }
 
 .contact-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+}
+
+.contact-card .contact-icon {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
+}
+.contact-card:hover .contact-icon {
+    transform: scale(1.3) translateY(-4px);
+    color: #a0c4ff;
 }
 
 .contact-card h3 {
@@ -2152,13 +2383,19 @@ body {
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), filter 0.25s ease;
     font-size: 1rem;
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-5px);
+    filter: brightness(1.1);
     box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.12s ease;
 }
 
 /* Карта */
@@ -2440,31 +2677,6 @@ body {
     }
 }
 
-/* Стили для модальных действий (теперь только одна кнопка) */
-.modal-actions {
-    display: flex;
-    gap: 0.8rem;
-    margin-top: 0.9rem;
-}
-
-.modal-rent-btn {
-    width: 100%;
-    background: linear-gradient(135deg, #4a7bc8, #6a9ae8);
-    color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 1rem;
-}
-
-.modal-rent-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.4);
-}
-
 /* =============================================
    НЕДОСТАЮЩИЕ КЛАССЫ МАКЕТА КАТАЛОГА
    ============================================= */
@@ -2502,11 +2714,7 @@ body {
     padding: 0.8rem 1rem;
 }
 
-/* =============================================
-   УЛУЧШЕННЫЕ HOVER-АНИМАЦИИ
-   ============================================= */
-
-/* Поля ввода — фокус-анимация */
+/* Input focus styles */
 .search-box input:focus,
 .form-group input:focus,
 .form-group select:focus,
@@ -2522,591 +2730,25 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Кнопки фильтров — улучшенный hover */
-.dropdown-toggle {
-    transition: all 0.3s ease;
-}
-
-.dropdown-toggle:hover {
-    background: rgba(74, 123, 200, 0.2);
-    border-color: rgba(106, 154, 232, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.2);
-}
-
-/* Кнопка сброса фильтров */
-.reset-btn {
-    transition: all 0.3s ease;
-}
-
-.reset-btn:hover {
-    background: rgba(255, 80, 80, 0.2);
-    border-color: rgba(255, 100, 100, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(200, 50, 50, 0.2);
-    color: #ff9090;
-}
-
-.reset-btn:hover i {
-    animation: spin-once 0.4s ease;
-}
-
-@keyframes spin-once {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(-360deg); }
-}
-
-/* Dropdown items */
-.dropdown-item:hover {
-    background: rgba(74, 123, 200, 0.25);
-    padding-left: 1.6rem;
-    color: #a0c4ff;
-}
-
-.dropdown-item {
-    transition: all 0.25s ease;
-}
-
-/* Кнопка закрытия модалки */
-.modal-close {
-    transition: all 0.3s ease;
-}
-
-.modal-close:hover {
-    background: rgba(200, 50, 50, 0.7);
-    transform: rotate(90deg) scale(1.1);
-}
-
-/* Миниатюры изображений в модалке */
-.thumbnail:hover {
-    border-color: rgba(106, 154, 232, 0.7);
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(74, 123, 200, 0.4);
-}
-
-/* Переключатель скидок */
-.discounts-toggle {
-    transition: all 0.3s ease;
-}
-
-.discounts-toggle:hover {
-    background: rgba(74, 123, 200, 0.2);
-    border-color: rgba(106, 154, 232, 0.5);
-    box-shadow: 0 3px 10px rgba(74, 123, 200, 0.2);
-}
-
-/* Плавная анимация аккордеона скидок (вместо display:none) */
-.discounts-content {
-    display: block !important;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    opacity: 0;
-    margin-top: 0;
-}
-
-.discounts-content.show {
-    max-height: 600px;
-    opacity: 1;
-    margin-top: 1rem;
-}
-
-/* Контактные карточки — border при ховере */
-.contact-card {
-    transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-    border-color: rgba(74, 123, 200, 0.5);
-    box-shadow: 0 20px 40px rgba(74, 123, 200, 0.3);
-}
-
-.contact-card .contact-icon {
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.contact-card:hover .contact-icon {
-    transform: scale(1.2) translateY(-4px);
-    color: #a0c4ff;
-}
-
-/* Иконки в карточках условий */
-.condition-card .condition-icon {
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.condition-card:hover .condition-icon {
-    transform: scale(1.2) rotate(-5deg);
-    color: #a0c4ff;
-}
-
-/* Карточки команды — иконка фото */
-.team-card .photo-placeholder {
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-card:hover .photo-placeholder {
-    border-color: rgba(106, 154, 232, 0.6);
-    box-shadow: 0 0 20px rgba(74, 123, 200, 0.3);
-}
-
-/* Кнопки в каталоге — подсветка при ховере */
-.rent-btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.rent-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.rent-btn:hover::after {
-    left: 100%;
-}
-
-/* Языковые опции */
-.lang-option {
-    transition: all 0.25s ease;
-}
-
-.lang-option:hover {
-    background: rgba(74, 123, 200, 0.3);
-    padding-left: 1.5rem;
-    color: #a0c4ff;
-}
-
-/* Спецификации в модалке — hover на item */
-.spec-item {
-    transition: all 0.25s ease;
-    border-radius: 8px;
-    padding: 0.3rem 0.5rem;
-}
-
-.spec-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.spec-item:hover i {
-    transform: scale(1.2);
-    transition: transform 0.25s ease;
-}
-
-/* Кнопка оферты в футере */
-.offerta-btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.offerta-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-    transition: left 0.5s ease;
-}
-
-.offerta-btn:hover::after {
-    left: 100%;
-}
-
-.offerta-btn:hover {
-    background: rgba(74, 123, 200, 0.25);
-    border-color: rgba(106, 154, 232, 0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(74, 123, 200, 0.3);
-}
-
-/* Карточки автомобилей в каталоге — дополнительный glow */
-.car-card-detailed {
-    transition: all 0.35s ease;
-}
-
-.car-card-detailed:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(74, 123, 200, 0.35);
-    border-color: rgba(106, 154, 232, 0.6);
-}
-
-/* FAQ — плавное открытие */
-.faq-question {
-    transition: all 0.3s ease;
-    border-radius: 12px;
-}
-
-.faq-item.active .faq-question {
-    background: rgba(74, 123, 200, 0.1);
-}
-
-/* Счётчик результатов */
+/* Results count */
 #resultsCount {
     font-weight: 600;
     color: #6a9ae8;
 }
 
-/* Плавное появление карточек каталога */
+/* Card appear animation */
 @keyframes card-appear {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(20px) scale(0.98);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
-.car-card-detailed {
-    animation: card-appear 0.4s ease both;
-}
-
-/* =============================================
-   УЛУЧШЕННЫЕ КРИВЫЕ И АНИМАЦИИ (ГЛОБАЛЬНЫЙ ОВЕРРАЙД)
-
-   ПРАВИЛО: translateY использует только --smooth (без перелёта!).
-   Spring (0.34,1.56,0.64,1) — ТОЛЬКО для scale/rotate.
-   Дистанции подъёма уменьшены чтобы курсор не вылетал из зоны ховера.
-
-   --smooth: cubic-bezier(0.4, 0, 0.2, 1)      — равномерный ease-in-out
-   --spring: cubic-bezier(0.34, 1.56, 0.64, 1) — пружина (только scale/rotate)
-   --slide:  cubic-bezier(0.76, 0, 0.24, 1)    — резкий slide для ::before
-   ============================================= */
-
-/* --- Nav ссылки --- */
-.nav a {
-    transition: color 0.25s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-                transform 0.5s cubic-bezier(0.4,0,0.2,1);
-}
-.nav a::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
-.nav a:hover   { transform: translateY(-2px); }
-.nav a:active  { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Кнопка языка --- */
-.nav-lang-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-                color 0.25s ease;
-}
-.nav-lang-btn::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
-.nav-lang-btn:active  { transform: translateY(0) scale(0.97) !important; transition: transform 0.12s ease; }
-
-/* --- Hero кнопки: translateY плавный, иконка пружинит --- */
-.hero-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.hero-btn::before { transition: filter 0.3s ease; }
-.hero-btn::after  { transition: left 0.7s cubic-bezier(0.4,0,0.2,1); }
-.hero-btn i {
-    display: inline-block;
-    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
-}
-.hero-btn:hover   { transform: translateY(-6px); }
-.hero-btn:hover i { transform: translateX(6px); }
-.hero-btn:active  { transform: translateY(-1px) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Кнопки в карточках авто (scale — безопасно, не вызывает jitter) --- */
-.car-rent-btn {
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
-                filter 0.25s ease;
-}
-.car-rent-btn:hover  { transform: scale(1.07); filter: brightness(1.1); }
-.car-rent-btn:active { transform: scale(0.96); transition: transform 0.12s ease; }
-
-/* --- Кнопка аренды в каталоге --- */
-.rent-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.rent-btn::after { transition: left 0.6s cubic-bezier(0.4,0,0.2,1); }
-.rent-btn:hover  { transform: translateY(-5px); }
-.rent-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Кнопки модального окна --- */
-.modal-rent-btn,
-.modal-contact-btn,
-.long-term-card .modal-contact-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-                filter 0.25s ease;
-}
-.modal-rent-btn:hover    { transform: translateY(-5px); filter: brightness(1.08); }
-.modal-contact-btn:hover { transform: translateY(-5px); }
-.modal-rent-btn:active,
-.modal-contact-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Кнопка закрытия: rotate безопасен --- */
-.modal-close {
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
-                background 0.25s ease;
-}
-.modal-close:hover  { background: rgba(200,50,50,0.75); transform: rotate(90deg) scale(1.15); }
-.modal-close:active { transform: rotate(90deg) scale(0.9); transition: transform 0.12s ease; }
-
-/* --- Социальные кнопки: подъём уменьшен, scale/rotate пружинит --- */
-.social-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.social-btn::before { transition: filter 0.3s ease; }
-.social-btn:hover   { transform: translateY(-7px) scale(1.12) rotate(-5deg); box-shadow: 0 14px 30px rgba(0,0,0,0.5); }
-.social-btn:active  { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Футер nav: translateX не вызывает jitter --- */
-.footer-nav-btn {
-    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1),
-                color 0.25s ease,
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.footer-nav-btn::before { transition: left 0.45s cubic-bezier(0.76,0,0.24,1); }
-.footer-nav-btn:hover   { transform: translateX(6px); }
-.footer-nav-btn:active  { transform: translateX(2px) scale(0.98); transition: transform 0.12s ease; }
-
-/* --- Оферта кнопка --- */
-.offerta-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                background 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.offerta-btn::after { transition: left 0.6s cubic-bezier(0.4,0,0.2,1); }
-.offerta-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Карточки: translateY плавный, подъём уменьшен до -6px --- */
-.premium-car-card {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-}
-.premium-car-card:hover { transform: translateY(-9px) scale(1.015); }
-.premium-car-card .car-overlay { transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1); }
-
-.car-card-detailed {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-    animation: card-appear 0.55s cubic-bezier(0.4,0,0.2,1) both;
-}
-.car-card-detailed:hover { transform: translateY(-9px) scale(1.015); }
-.car-card-detailed .car-image-detailed img {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
-}
-.car-card-detailed:hover .car-image-detailed img { transform: scale(1.07); }
-
-.condition-card {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-}
-.condition-card:hover { transform: translateY(-9px) scale(1.015); }
-.condition-card .condition-icon {
-    display: inline-block;
-    /* spring для rotate/scale — не вызывает jitter */
-    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
-}
-.condition-card:hover .condition-icon { transform: scale(1.25) rotate(-8deg); }
-
-.contact-card {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-}
-.contact-card:hover { transform: translateY(-9px) scale(1.015); }
-.contact-card .contact-icon {
-    display: inline-block;
-    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), color 0.3s ease;
-}
-.contact-card:hover .contact-icon { transform: scale(1.3) translateY(-4px); }
-
-.team-card {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-}
-.team-card:hover { transform: translateY(-9px) scale(1.015); }
-.team-card .photo-placeholder {
-    transition: border-color 0.35s ease,
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-                transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
-}
-.team-card:hover .photo-placeholder { transform: scale(1.05); }
-
-.advantage-card {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease,
-                background 0.35s ease;
-}
-.advantage-card:hover { transform: translateY(-9px) scale(1.015); }
-.advantage-icon-wrap {
-    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-}
-.advantage-card:hover .advantage-icon-wrap { transform: scale(1.15) rotate(-8deg); }
-
-.step {
-    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
-                border-color 0.35s ease;
-}
-.step:hover { transform: translateY(-9px) scale(1.015); }
-.step-icon-wrap {
-    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-}
-.step:hover .step-icon-wrap { transform: scale(1.15) rotate(8deg); }
-
-/* --- Dropdown toggle: translateY убран, только фон --- */
-.dropdown-toggle {
-    transition: background 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.dropdown-toggle:active { transform: scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Dropdown меню: появление без spring на translateY --- */
-.dropdown-menu {
-    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1),
-                transform 0.35s cubic-bezier(0.4,0,0.2,1),
-                visibility 0.3s ease;
-}
-.dropdown-menu.show { transform: translateY(4px); }
-.language-dropdown {
-    transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1),
-                transform 0.35s cubic-bezier(0.4,0,0.2,1),
-                visibility 0.3s ease;
-}
-.language-dropdown.show { transform: translateY(4px); }
-
-/* --- Dropdown items --- */
-.dropdown-item {
-    transition: background 0.2s ease,
-                padding-left 0.3s cubic-bezier(0.4,0,0.2,1),
-                color 0.2s ease;
-}
-.lang-option {
-    transition: background 0.2s ease,
-                padding-left 0.3s cubic-bezier(0.4,0,0.2,1),
-                color 0.2s ease;
-}
-
-/* --- Reset кнопка --- */
-.reset-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                background 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.4s ease,
-                color 0.25s ease;
-}
-.reset-btn:hover   { transform: translateY(-2px); }
-.reset-btn:active  { transform: translateY(0) scale(0.96); transition: transform 0.12s ease; }
-.reset-btn:hover i { animation: spin-once 0.5s cubic-bezier(0.34,1.56,0.64,1); }
-
-/* --- Thumbnail: scale безопасен --- */
-.thumbnail {
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
-                border-color 0.25s ease,
-                box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
-}
-.thumbnail:hover  { transform: scale(1.1); }
-.thumbnail:active { transform: scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Spec items --- */
-.spec-item {
-    transition: background 0.25s ease;
-}
-.spec-item i {
-    display: inline-block;
-    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
-}
-.spec-item:hover i { transform: scale(1.3) rotate(-10deg); }
-
-/* --- Discounts toggle --- */
-.discounts-toggle {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                background 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.4s ease;
-}
-.discounts-toggle:hover  { transform: translateY(-2px); }
-.discounts-toggle:active { transform: translateY(0) scale(0.98); transition: transform 0.12s ease; }
-.discounts-toggle .fa-chevron-down {
-    display: inline-block;
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-}
-.discounts-toggle.active .fa-chevron-down { transform: rotate(180deg); }
-
-/* --- FAQ: translateX не вызывает jitter --- */
-.faq-question {
-    transition: background 0.25s ease,
-                transform 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.faq-question:hover { transform: translateX(4px); }
-.faq-question i {
-    display: inline-block;
-    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-}
-/* --- Contact links: translateX безопасен --- */
-.contact-link {
-    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
-                color 0.25s ease;
-}
-.contact-link:hover { transform: translateX(5px); }
-.contact-link i {
-    display: inline-block;
-    transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), color 0.25s ease;
-}
-.contact-link:hover i { transform: scale(1.2) rotate(-5deg); color: #6a9ae8; }
-
-/* --- Phone/address в хедере --- */
-.phone-link, .address-link {
-    display: block;
-    transition: color 0.25s ease,
-                transform 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.phone-link:hover, .address-link:hover { transform: translateX(3px); }
-
-/* --- Submit кнопка --- */
-.submit-btn {
-    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
-                box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
-                filter 0.25s ease;
-}
-.submit-btn:hover  { transform: translateY(-5px); filter: brightness(1.1); }
-.submit-btn:active { transform: translateY(0) scale(0.97); transition: transform 0.12s ease; }
-
-/* --- Logo: scale безопасен --- */
-.logo-img { transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1); }
-.logo-img:hover { transform: scale(1.08); }
-
-/* --- Period row --- */
-.period-row {
-    transition: background 0.25s ease,
-                padding-left 0.3s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* --- Scrolling items: scale + translateY небольшой --- */
-.scrolling-item {
-    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1),
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-}
-.scrolling-item:hover { transform: translateY(-5px) scale(1.05); }
-
-/* --- Section CTA --- */
+/* Section CTA button */
 .section-cta-btn {
     transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
                 box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
@@ -3121,7 +2763,7 @@ body {
 }
 .section-cta-btn:hover i { transform: translateX(7px); }
 
-/* --- CTA кнопки --- */
+/* CTA buttons */
 .cta-btn {
     transition: transform 0.5s cubic-bezier(0.4,0,0.2,1),
                 box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
@@ -3129,7 +2771,36 @@ body {
 }
 .cta-btn:active { transform: translateY(0) scale(0.96) !important; transition: transform 0.12s ease; }
 
-/* --- Reveal --- */
+/* Advantage cards */
+.advantage-card {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease,
+                background 0.35s ease;
+}
+.advantage-card:hover { transform: translateY(-9px) scale(1.015); }
+.advantage-icon-wrap {
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.advantage-card:hover .advantage-icon-wrap { transform: scale(1.15) rotate(-8deg); }
+
+/* Step cards */
+.step {
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.45s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+.step:hover { transform: translateY(-9px) scale(1.015); }
+.step-icon-wrap {
+    transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.step:hover .step-icon-wrap { transform: scale(1.15) rotate(8deg); }
+
+/* Reveal animations */
 .reveal-item {
     opacity: 0;
     transform: translateY(30px);
@@ -3138,15 +2809,9 @@ body {
 }
 .reveal-item.visible { opacity: 1; transform: translateY(0); }
 
-/* --- Hero анимации --- */
+/* Hero animations */
 .hero-animate-left  { animation: slide-in-left  0.9s cubic-bezier(0.4,0,0.2,1) 0.15s forwards; }
 .hero-animate-right { animation: slide-in-right 0.9s cubic-bezier(0.4,0,0.2,1) 0.35s forwards; }
-
-/* --- card-appear --- */
-@keyframes card-appear {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
 
 /* =============================================
    ГЛАВНАЯ СТРАНИЦА — НОВЫЕ СТИЛИ

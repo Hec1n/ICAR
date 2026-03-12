@@ -444,8 +444,8 @@ function renderCars(cars = Object.values(carData)) {
 
     catalogGrid.innerHTML = cars.map(car => `
         <div class="car-card-detailed" data-car="${car.id}" data-type="${car.type}" data-price="${car.priceSegment}" data-city="${car.city}">
-            <div class="car-image-detailed">
-                <img src="images/cars/${car.id}/${car.images[0]}" alt="${car.title}"
+            <div class="car-image-detailed" data-car-id="${car.id}" style="cursor:pointer;">
+                <img src="images/cars/${car.id}/${car.images[0] || 'default.jpg'}" alt="${car.title}"
                      onerror="this.onerror=null; this.src='images/cars/default.jpg'; this.alt='Фото автомобиля'">
                 <div class="car-badge">${getBadgeText(car.priceSegment)}</div>
                 <div class="city-badge">${getCityName(car.city)}</div>
@@ -522,12 +522,21 @@ function renderCars(cars = Object.values(carData)) {
             }
         });
     });
+
+    // Клик на изображение карточки открывает модалку
+    document.querySelectorAll('.car-image-detailed').forEach(imageArea => {
+        const carId = imageArea.getAttribute('data-car-id');
+        const car = carData[carId];
+        if (!car) return;
+        imageArea.addEventListener('click', function() {
+            openCarModal(car);
+        });
+    });
 }
 
 // Функция для получения текста бейджа
 function getBadgeText(priceSegment) {
     const badges = {
-        'economy': 'Эконом',
         'comfort': 'Комфорт',
         'business': 'Бизнес',
         'premium': 'Премиум'
@@ -773,51 +782,54 @@ function openCarModal(car) {
     // Обновляем главное фото автомобиля в модальном окне
     const carImage = document.querySelector('.modal-car-image');
     if (carImage) {
-        carImage.innerHTML = `<img src="images/cars/${car.id}/${car.images[0]}" alt="${car.title}"
-                              onerror="this.onerror=null; this.src='images/cars/default.jpg'; this.alt='Фото автомобиля'">`;
+        if (car.images.length > 0) {
+            carImage.innerHTML = `<img src="images/cars/${car.id}/${car.images[0]}" alt="${car.title}"
+                                  onerror="this.onerror=null; this.src='images/cars/default.jpg'; this.alt='Фото автомобиля'">`;
+        } else {
+            carImage.innerHTML = `<img src="images/cars/default.jpg" alt="Фото автомобиля">`;
+        }
     }
 
-    // Обновляем миниатюры — сначала полный сброс
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach((thumbnail, index) => {
-        // Сбрасываем содержимое
-        thumbnail.innerHTML = '';
-        thumbnail.classList.remove('active');
-        thumbnail.replaceWith(thumbnail.cloneNode(false)); // снимаем старые listeners
-    });
+    // Динамически генерируем миниатюры по реальному количеству фото
+    const thumbnailsContainer = document.querySelector('.image-thumbnails');
+    if (thumbnailsContainer) {
+        thumbnailsContainer.innerHTML = '';
 
-    // Заново выбираем после cloneNode
-    const freshThumbnails = document.querySelectorAll('.thumbnail');
-    freshThumbnails[0] && freshThumbnails[0].classList.add('active');
-
-    freshThumbnails.forEach((thumbnail, index) => {
-        if (car.images[index]) {
-            const img = document.createElement('img');
-            img.src = `images/cars/${car.id}/${car.images[index]}`;
-            img.alt = `${car.title} - фото ${index + 1}`;
-            img.onerror = function() {
-                this.style.display = 'none';
-                const ph = document.createElement('div');
-                ph.className = 'thumbnail-placeholder';
-                ph.textContent = index + 1;
-                thumbnail.appendChild(ph);
-            };
-            thumbnail.appendChild(img);
+        if (car.images.length === 0) {
+            // Нет фото — показываем заглушку
+            const thumb = document.createElement('div');
+            thumb.className = 'thumbnail active';
+            thumb.innerHTML = '<div class="thumbnail-placeholder">1</div>';
+            thumbnailsContainer.appendChild(thumb);
         } else {
-            const ph = document.createElement('div');
-            ph.className = 'thumbnail-placeholder';
-            ph.textContent = index + 1;
-            thumbnail.appendChild(ph);
-        }
+            car.images.forEach((imgFile, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = `thumbnail${index === 0 ? ' active' : ''}`;
 
-        thumbnail.addEventListener('click', function() {
-            if (carImage && car.images[index]) {
-                carImage.innerHTML = `<img src="images/cars/${car.id}/${car.images[index]}" alt="${car.title} - фото ${index + 1}">`;
-            }
-            freshThumbnails.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
+                const img = document.createElement('img');
+                img.src = `images/cars/${car.id}/${imgFile}`;
+                img.alt = `${car.title} - фото ${index + 1}`;
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const ph = document.createElement('div');
+                    ph.className = 'thumbnail-placeholder';
+                    ph.textContent = index + 1;
+                    thumb.appendChild(ph);
+                };
+                thumb.appendChild(img);
+
+                thumb.addEventListener('click', function() {
+                    if (carImage) {
+                        carImage.innerHTML = `<img src="images/cars/${car.id}/${imgFile}" alt="${car.title} - фото ${index + 1}">`;
+                    }
+                    thumbnailsContainer.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+
+                thumbnailsContainer.appendChild(thumb);
+            });
+        }
+    }
 
     // Сбрасываем аккордеон скидок при открытии новой машины
     const discountsToggle = document.getElementById('discountsToggle');
