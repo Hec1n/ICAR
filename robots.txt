@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /lang/
+
+Sitemap: https://icar.kz/sitemap.xml
+
+Host: icar.kz

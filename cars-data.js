@@ -293,7 +293,7 @@ const carData = {
             { minDays: 31, price: 27000 }
         ],
         features: ['Полный привод', 'Трехзонный климат-контроль', 'Панорамная крыша', 'Система парковки'],
-        images: ['santa-fe (1).jpg', 'santa-fe (2).jpg', 'santa-fe (3).jpg', 'santa-fe (4).jpg', 'santa-fe (5).jpg', 'santa-fe (6).jpg', 'santa-fe (7).jpg', 'santa-fe (8).jpg', 'santa-fe (9).jpg'],
+        images: ['santa-fe-1.jpg', 'santa-fe-2.jpg', 'santa-fe-3.jpg', 'santa-fe-4.jpg', 'santa-fe-5.jpg', 'santa-fe-6.jpg', 'santa-fe-7.jpg', 'santa-fe-8.jpg', 'santa-fe-9.jpg'],
         color: 'linear-gradient(135deg, #8B4513, #000080)',
         carNumber: '905 ZCP 01',
         deposit: '20 000 ₸',

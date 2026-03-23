@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICar - Аренда автомобилей</title>
+    <title>ICar — Аренда автомобилей в Астане | от 5 000 ₸/сутки</title>
+    <meta name="description" content="ICar — аренда автомобилей в Астане. Более 50 машин: от эконом до премиум. Страхование включено, поддержка 24/7. Цены от 5 000 ₸/сутки. Доставка по городу.">
+    <meta name="keywords" content="аренда авто Астана, прокат автомобилей Казахстан, аренда машин Астана, прокат авто недорого, ICar, аренда без водителя, прокат машин Астана, аренда авто посуточно">
+    <link rel="canonical" href="https://icar.kz/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ICar — Аренда автомобилей в Астане | от 5 000 ₸/сутки">
+    <meta property="og:description" content="Более 50 автомобилей: от эконом до премиум. Страхование включено, поддержка 24/7. Доставка по городу.">
+    <meta property="og:url" content="https://icar.kz/">
+    <meta property="og:image" content="https://icar.kz/images/logo.png">
+    <meta property="og:site_name" content="ICar">
+    <meta property="og:locale" content="ru_RU">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ICar — Аренда автомобилей в Астане">
+    <meta name="twitter:description" content="Более 50 автомобилей: от эконом до премиум. Страхование, поддержка 24/7, от 5 000 ₸/сутки.">
+    <meta name="twitter:image" content="https://icar.kz/images/logo.png">
+    <!-- Geo -->
+    <meta name="geo.region" content="KZ-AST">
+    <meta name="geo.placename" content="Астана">
+    <meta name="geo.position" content="51.1466;71.4560">
+    <meta name="ICBM" content="51.1466, 71.4560">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="images/logo2.png">
-    <link rel="shortcut icon" href="images/logo2.png">
+    <link rel="apple-touch-icon" href="images/logo2.png">
 </head>
 <body>
     <!-- Animated Background -->
@@ -32,7 +54,7 @@
                     <span></span><span></span><span></span>
                 </button>
 
-                <nav class="nav" id="mainNav">
+                <nav class="nav" id="mainNav" aria-label="Основная навигация">
                     <a href="index.html" class="active">Главная</a>
                     <a href="catalog.html">Автопарк</a>
                     <a href="conditions.html">Условия</a>
@@ -46,7 +68,7 @@
                         <a href="tel:+77080770098" class="phone-link">
                             <div class="phone">+7 708 077 00-98</div>
                         </a>
-                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="address-link">
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" rel="noopener noreferrer" class="address-link">
                             <div class="address">г. Астана, ул. Тауельсыздык 19а</div>
                         </a>
                     </div>
@@ -69,6 +91,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -359,13 +382,15 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="logo-container">
-                        <img src="images/logo.png" alt="ICar - Аренда автомобилей" class="logo-img">
+                        <img src="images/logo.png" alt="ICar — аренда автомобилей в Астане" class="logo-img" loading="lazy">
                     </div>
                     <p class="footer-description">Премиальная аренда автомобилей в Астане. Лучшие условия и сервис.</p>
                     <div class="footer-stats">
@@ -382,7 +407,7 @@
 
                 <div class="footer-section">
                     <h3>Навигация</h3>
-                    <nav class="footer-nav">
+                    <nav class="footer-nav" aria-label="Навигация в подвале">
                         <a href="index.html" class="footer-nav-btn">Главная</a>
                         <a href="catalog.html" class="footer-nav-btn">Автопарк</a>
                         <a href="conditions.html" class="footer-nav-btn">Условия</a>
@@ -396,7 +421,7 @@
                         <a href="tel:+77080770098" class="contact-link">
                             <p><i class="fas fa-phone"></i> +7 708 077 00-98</p>
                         </a>
-                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" class="contact-link">
+                        <a href="https://maps.google.com/?q=г. Астана, ул. Тауельсыздык 19а" target="_blank" rel="noopener noreferrer" class="contact-link">
                             <p><i class="fas fa-map-marker-alt"></i> г. Астана, ул. Тауельсыздык 19а</p>
                         </a>
                         <a href="mailto:info@icar.kz" class="contact-link">
@@ -409,13 +434,13 @@
                     <h3>Документы</h3>
                     <a href="offerta.html" class="offerta-btn">Публичная оферта</a>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/icar_avtorent?igsh=MTllbDN0MnJyYnE5Zw%3D%3D&utm_source=qr" class="social-btn instagram">
+                        <a href="https://www.instagram.com/icar_avtorent?igsh=MTllbDN0MnJyYnE5Zw%3D%3D&utm_source=qr" class="social-btn instagram" rel="noopener noreferrer" target="_blank" aria-label="ICar в Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/message/NWBAXKDHB6WHJ1" class="social-btn whatsapp">
+                        <a href="https://wa.me/message/NWBAXKDHB6WHJ1" class="social-btn whatsapp" rel="noopener noreferrer" target="_blank" aria-label="Написать в WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://t.me/icarlife" class="social-btn telegram">
+                        <a href="https://t.me/icarlife" class="social-btn telegram" rel="noopener noreferrer" target="_blank" aria-label="ICar в Telegram">
                             <i class="fab fa-telegram"></i>
                         </a>
                     </div>
@@ -423,11 +448,12 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2023 ICar. Все права защищены.</p>
+                <p>&copy; 2025 ICar. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <script src="translator.js"></script>
     <script src="script.js"></script>
     <script>
         // ---- Scroll reveal ----
@@ -475,6 +501,74 @@
 
         const statsEl = document.querySelector('.hero-stats');
         if (statsEl) statsObserver.observe(statsEl);
+    </script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutoRental",
+        "name": "ICar",
+        "description": "Аренда автомобилей в Астане. Более 50 машин: от эконом до премиум класса. Страхование включено, поддержка 24/7.",
+        "url": "https://icar.kz",
+        "logo": "https://icar.kz/images/logo.png",
+        "image": "https://icar.kz/images/logo.png",
+        "telephone": "+77080770098",
+        "email": "info@icar.kz",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Тауельсыздык 19а",
+            "addressLocality": "Астана",
+            "addressCountry": "KZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.1466,
+            "longitude": 71.4560
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "21:00"
+        },
+        "priceRange": "от 5 000 ₸/сутки",
+        "currenciesAccepted": "KZT",
+        "paymentAccepted": "Наличные, Банковская карта",
+        "areaServed": {
+            "@type": "City",
+            "name": "Астана"
+        },
+        "sameAs": [
+            "https://www.instagram.com/icar_avtorent",
+            "https://t.me/icarlife"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ICar",
+        "url": "https://icar.kz",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://icar.kz/catalog.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://icar.kz/"
+        }]
+    }
     </script>
 </body>
 </html>

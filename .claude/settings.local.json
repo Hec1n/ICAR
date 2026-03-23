@@ -27,7 +27,8 @@
       "Bash(mv toyota_camry_75_101_GPA toyota_camry_75_50336)",
       "Bash(mv toyota_camry_80_099_AWY toyota_camry_65265)",
       "Bash(mv toyota_camry_80_373_ALT toyota_camry_71088)",
-      "Bash(mv zeekr_001 zeekr_001_72415)"
+      "Bash(mv zeekr_001 zeekr_001_72415)",
+      "Bash(node -e \":*)"
     ]
   }
 }
